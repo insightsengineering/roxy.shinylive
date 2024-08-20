@@ -145,7 +145,7 @@ roxy_tag_parse.roxy_tag_examplesShinylive <- function(x) {
     roxygen2::warn_roxy_tag(x, "requires a value")
     return(NULL)
   }
-  x$val <- create_shinylive_url(x$raw)
+  x$val <- create_shinylive_url(x$raw) # nolint: object_usage_linter.
   x
 }
 
