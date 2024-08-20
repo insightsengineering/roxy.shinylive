@@ -13,11 +13,13 @@ pak::pak("insightsengineering/roxy.shinylive")
 ## Usage
 
 In your `DESCRIPTION` file, add the following:
+
 ```yaml
 Roxygen: list(markdown = TRUE, packages = c("roxy.shinylive"))
 ```
 
 Then in your package documentation:
+
 ```r
 #' (docs)
 #' @examplesShinylive

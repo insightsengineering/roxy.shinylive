@@ -1,6 +1,6 @@
 Type: Package
 Package: roxy.shinylive
-Title: A roxygen2 Extension for Shinylive
+Title: A Roxygen2 Extension for Shinylive
 Version: 0.0.0.9001
 Authors@R: c(
     person("Pawel Rucki", , , "pawel.rucki@roche.com", role = c("aut", "cre")),
@@ -36,5 +36,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Config/testthat/edition: 3
 Collate:
-    'examplesShinylive.R'
+    'tag_examplesShinylive.R'
     'parse_url.R'
