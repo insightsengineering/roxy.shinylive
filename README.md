@@ -7,7 +7,7 @@ This package provides a `roxygen2` extension that automatically takes the exampl
 ## Install
 
 ```r
-devtools::install_github("insightsengineering/roxy.shinylive")
+pak::pak("insightsengineering/roxy.shinylive")
 ```
 
 ## Usage
@@ -20,9 +20,9 @@ Roxygen: list(markdown = TRUE, packages = c("roxy.shinylive"))
 Then in your package documentation:
 ```r
 #' (docs)
-#' @examplesShinyLive
+#' @examplesShinylive
 #' @examples
-#' (example code with shiny App)
+#' (example code with a Shiny app)
 ```
 
 Which would produce a following output in your documentation:
@@ -37,4 +37,4 @@ Which would produce a following output in your documentation:
 }
 ```
 
-See the pacakge documentation for more details.
+See the package documentation for more details.

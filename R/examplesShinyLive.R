@@ -1,9 +1,9 @@
-#' Custom `examplesShinyLive` tag.
+#' Custom `examplesShinylive` tag.
 #'
-#' This function generates a new section with ShinyLive links to the applications from this tag content.
+#' This function generates a new section with Shinylive links to the applications from this tag content.
 #' If no code is provided then the code from the following `@examples` tag is used.
 #'
-#' The application code must be executable inside ShinyLive. If the application code includes functions from your
+#' The application code must be executable inside Shinylive. If the application code includes functions from your
 #' package, you must add `library(<your package>)` beforehand. For more information, refer to the Decoration section
 #' on how to use and decorate existing examples.
 #'
@@ -12,8 +12,8 @@
 #'
 #' @section Decoration:
 #'
-#' To avoid repetition between the `@examplesShinyLive` and `@examples` sections, there are special string literals
-#' that provide access to the `@examples` content from within `@examplesShinyLive`.
+#' To avoid repetition between the `@examplesShinylive` and `@examples` sections, there are special string literals
+#' that provide access to the `@examples` content from within `@examplesShinylive`.
 #' These literals should be used as expressions embraced with `{{ }}`, which are then interpolated using
 #' `glue::glue_data(..., .open = "{{", .close = "}}")`.
 #'
@@ -23,26 +23,26 @@
 #' * `"{{ next_example }}"` - "raw" element of the next example
 #' * `"{{ prev_example }}"` - "raw" element of the previous example
 #'
-#' This allows you to access and decorate existing example code to create executable application code for ShinyLive.
+#' This allows you to access and decorate existing example code to create executable application code for Shinylive.
 #' Refer to the examples section for possible use cases.
 #'
-#' @name tag-examplesShinyLive
+#' @name tag-examplesShinylive
 #'
 #' @usage
-#' #' @examplesShinyLive${1:# example code (optional)}
+#' #' @examplesShinylive${1:# example code (optional)}
 #'
 #' @examples
 #' # As a part of documentation:
 #'
 #' # basic example:
 #' #' (docs)
-#' #' @examplesShinyLive
+#' #' @examplesShinylive
 #' #' @examples
 #' #' (example code)
 #'
 #' # using keywords:
 #' #' (docs)
-#' #' @examplesShinyLive
+#' #' @examplesShinylive
 #' #' foo <- 1
 #' #' {{ next_example }}
 #' #' bar <- 2
@@ -51,7 +51,7 @@
 #'
 #' # A typical example would be:
 #' #' (docs)
-#' #' @examplesShinyLive
+#' #' @examplesShinylive
 #' #' library(<your package>)
 #' #' interactive <- function() TRUE
 #' #' {{ next_example }}
@@ -63,10 +63,10 @@
 #'
 #' # multiple apps:
 #' #' (docs)
-#' #' @examplesShinyLive
+#' #' @examplesShinylive
 #' #' @examples
 #' #' (your example app 1)
-#' #' @examplesShinyLive
+#' #' @examplesShinylive
 #' #' @examples
 #' #' (your example app 2)
 #'
@@ -74,18 +74,18 @@
 #' #' (docs)
 #' #' @examples
 #' #' (your example code - skipped)
-#' #' @examplesShinyLive
+#' #' @examplesShinylive
 #' #' @examples
 #' #' (your example code - included)
 #'
 #' # multiple apps with keywords:
 #' #' (docs)
-#' #' @examplesShinyLive
+#' #' @examplesShinylive
 #' #' x <- 1
 #' #' {{ next_example }}
 #' #' @examples
 #' #' (your example app 1)
-#' #' @examplesShinyLive
+#' #' @examplesShinylive
 #' #' y <- 1
 #' #' {{ next_example }}
 #' #' @examples
@@ -93,11 +93,11 @@
 NULL
 
 #' @noRd
-#' @exportS3Method roxygen2::roxy_tag_parse roxy_tag_examplesShinyLive
+#' @exportS3Method roxygen2::roxy_tag_parse roxy_tag_examplesShinylive
 #' @importFrom glue glue_data
 #' @importFrom stringr str_trim
 #' @importFrom roxygen2 warn_roxy_tag
-roxy_tag_parse.roxy_tag_examplesShinyLive <- function(x) {
+roxy_tag_parse.roxy_tag_examplesShinylive <- function(x) {
   if (stringr::str_trim(x$raw) == "") {
     x$raw <- "{{ next_example }}"
   }
@@ -150,15 +150,15 @@ roxy_tag_parse.roxy_tag_examplesShinyLive <- function(x) {
 }
 
 #' @noRd
-#' @exportS3Method roxygen2::roxy_tag_rd roxy_tag_examplesShinyLive
+#' @exportS3Method roxygen2::roxy_tag_rd roxy_tag_examplesShinylive
 #' @importFrom roxygen2 rd_section
-roxy_tag_rd.roxy_tag_examplesShinyLive <- function(x, base_path, env) {
-  roxygen2::rd_section("examplesShinyLive", x$val)
+roxy_tag_rd.roxy_tag_examplesShinylive <- function(x, base_path, env) {
+  roxygen2::rd_section("examplesShinylive", x$val)
 }
 
 #' @noRd
-#' @exportS3Method format rd_section_examplesShinyLive
-format.rd_section_examplesShinyLive <- function(x, ...) {
+#' @exportS3Method format rd_section_examplesShinylive
+format.rd_section_examplesShinylive <- function(x, ...) {
   paste0(
     "\\section{Run examples in Shinylive}{\n",
     "\\itemize{\n",

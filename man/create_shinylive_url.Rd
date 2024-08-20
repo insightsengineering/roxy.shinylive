@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_url.R
 \name{create_shinylive_url}
 \alias{create_shinylive_url}
-\title{Creates shinylive url for the app code.}
+\title{Creates Shinylive url for the app code.}
 \usage{
 create_shinylive_url(code)
 }
@@ -10,8 +10,8 @@ create_shinylive_url(code)
 \item{code}{(\code{character(1)}) A string with app code.}
 }
 \value{
-(\code{character(1)}) ShinyLive app url.
+(\code{character(1)}) Shinylive app url.
 }
 \description{
-Creates shinylive url for the app code.
+Creates Shinylive url for the app code.
 }
