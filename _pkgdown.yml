@@ -1,0 +1,27 @@
+---
+url: https://insightsengineering.github.io/roxy.shinylive/
+
+template:
+  package: nesttemplate
+
+navbar:
+  right:
+    - icon: fa-github
+      href: https://github.com/insightsengineering/roxy.shinylive
+
+articles:
+  - title: Articles
+    navbar: ~
+    contents:
+      - matches("*")
+
+reference:
+  - title: Tags
+    desc: Functions for working with tags
+    contents:
+      - starts_with("tag-")
+
+  - title: Other
+    desc: Other functions
+    contents:
+      - create_shinylive_url
