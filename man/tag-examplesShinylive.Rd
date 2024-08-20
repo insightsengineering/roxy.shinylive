@@ -7,8 +7,9 @@
 #' @examplesShinylive${1:# example code (optional)}
 }
 \description{
-This function generates a new section with Shinylive links to the applications from this tag content.
-If no code is provided then the code from the following \verb{@examples} tag is used.
+This function generates a new "Examples in Shinylive" section in the documentation. This section contains URL to
+the application in Shinylive as well as an iframe with the application.
+If no code is provided then the code is taken from the following \verb{@examples} or \verb{@examplesIf} tag.
 }
 \details{
 The application code must be executable inside Shinylive. If the application code includes functions from your
@@ -22,14 +23,14 @@ See \href{https://docs.r-wasm.org/webr/latest/packages.html}{this article} for m
 
 
 To avoid repetition between the \verb{@examplesShinylive} and \verb{@examples} sections, there are special string literals
-that provide access to the \verb{@examples} content from within \verb{@examplesShinylive}.
+that provide access to the other tags from within the content of \verb{@examplesShinylive}.
 These literals should be used as expressions embraced with \code{{{ }}}, which are then interpolated using
 \code{glue::glue_data(..., .open = "{{", .close = "}}")}.
 
 The following keywords are available:
 \itemize{
-\item \code{"{{ tags_examples }}"} - a list of tags with examples
-\item \code{"{{ examples }}"} - a list of "raw" elements from \code{tags_examples}
+\item \code{"{{ tags_examples }}"} - a list of \verb{@examples} or \verb{@examplesIf} tags
+\item \code{"{{ examples }}"} - a list of "raw" elements from \code{tags_examples} list elements
 \item \code{"{{ next_example }}"} - "raw" element of the next example
 \item \code{"{{ prev_example }}"} - "raw" element of the previous example
 }

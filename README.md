@@ -2,7 +2,7 @@
 
 ## Overview
 
-This package provides a `roxygen2` extension that automatically takes the example code from `@examples` tag that follows and crate an URL to the shinylive service. That URL is then added to the documentation.
+This package provides a `roxygen2` extension that automatically takes the code from the `@examples` tag that follows and crate an URL to the shinylive service. During the documentation build, a new section is added to the function manual that contains aforementioned link as well as iframe to the application itself.
 
 ## Install
 
@@ -30,10 +30,14 @@ Then in your package documentation:
 Which would produce a following output in your documentation:
 
 ```Rd
-\section{Run examples in Shinylive}{
+\section{Examples in Shinylive}{
 \itemize{
-  \item\href{https://shinylive.io/r/app/#code=...}{example-1}
-  \item\href{https://shinylive.io/r/app/#code=...}{example-2}
+  \item example-1\cr
+    \href{https://shinylive.io/r/app/#code=...}{Open in Shinylive}\cr
+    \if{html}{\out{<iframe src="https://shinylive.io/r/app/#code=..." ..."></iframe>}}
+  \item example-2\cr
+    \href{https://shinylive.io/r/app/#code=...}{Open in Shinylive}\cr
+    \if{html}{\out{<iframe src="https://shinylive.io/r/app/#code=..." ..."></iframe>}}
   ...
 }
 }

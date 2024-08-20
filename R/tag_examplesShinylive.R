@@ -1,7 +1,8 @@
 #' Custom `examplesShinylive` tag.
 #'
-#' This function generates a new section with Shinylive links to the applications from this tag content.
-#' If no code is provided then the code from the following `@examples` tag is used.
+#' This function generates a new "Examples in Shinylive" section in the documentation. This section contains URL to
+#' the application in Shinylive as well as an iframe with the application.
+#' If no code is provided then the code is taken from the following `@examples` or `@examplesIf` tag.
 #'
 #' The application code must be executable inside Shinylive. If the application code includes functions from your
 #' package, you must add `library(<your package>)` beforehand. For more information, refer to the Decoration section
@@ -13,13 +14,13 @@
 #' @section Decoration:
 #'
 #' To avoid repetition between the `@examplesShinylive` and `@examples` sections, there are special string literals
-#' that provide access to the `@examples` content from within `@examplesShinylive`.
+#' that provide access to the other tags from within the content of `@examplesShinylive`.
 #' These literals should be used as expressions embraced with `{{ }}`, which are then interpolated using
 #' `glue::glue_data(..., .open = "{{", .close = "}}")`.
 #'
 #' The following keywords are available:
-#' * `"{{ tags_examples }}"` - a list of tags with examples
-#' * `"{{ examples }}"` - a list of "raw" elements from `tags_examples`
+#' * `"{{ tags_examples }}"` - a list of `@examples` or `@examplesIf` tags
+#' * `"{{ examples }}"` - a list of "raw" elements from `tags_examples` list elements
 #' * `"{{ next_example }}"` - "raw" element of the next example
 #' * `"{{ prev_example }}"` - "raw" element of the previous example
 #'
@@ -105,7 +106,7 @@ roxy_tag_parse.roxy_tag_examplesShinylive <- function(x) {
   # not elegant but this is the most efficient way to access sibling tags
   tokens <- get("tokens", envir = parent.frame(3L))
 
-  tags_examples <- Filter(function(x) x$tag == "examples", tokens)
+  tags_examples <- Filter(function(x) x$tag %in% c("examples", "examplesIf"), tokens)
 
   examples <- lapply(tags_examples, `[[`, "raw")
 
@@ -159,10 +160,28 @@ roxy_tag_rd.roxy_tag_examplesShinylive <- function(x, base_path, env) {
 #' @noRd
 #' @exportS3Method format rd_section_examplesShinylive
 format.rd_section_examplesShinylive <- function(x, ...) {
+  iframe_attrs <- paste(
+    "height=\"800\"",
+    "width=\"150\\%\"", # @TODO: find a better way to set the width
+    "allow=\"fullscreen\"",
+    "scrolling=\"auto\"",
+    sep = " "
+  )
+  iframe_style <- paste(
+    "border: 1px solid rgba(0,0,0,0.175);",
+    "border-radius: .375rem;",
+    sep = " "
+  )
+  iframe_style <- paste0("style=\"", iframe_style, "\"")
   paste0(
-    "\\section{Run examples in Shinylive}{\n",
+    "\\section{Examples in Shinylive}{\n",
     "\\itemize{\n",
-    paste0("  \\item", "\\href{", x$value, "}{example-", seq_along(x$value), "}\n", collapse = ""),
+    paste0(
+      "  \\item example-", seq_along(x$value), "\\cr\n",
+      "    \\href{", x$value, "}{Open in Shinylive}\\cr\n",
+      "    \\if{html}{\\out{<iframe src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe>}}\n",
+      collapse = ""
+    ),
     "}\n",
     "}\n"
   )
