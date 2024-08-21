@@ -3,6 +3,7 @@
 S3method(format,rd_section_examplesShinylive)
 S3method(roxygen2::roxy_tag_parse,roxy_tag_examplesShinylive)
 S3method(roxygen2::roxy_tag_rd,roxy_tag_examplesShinylive)
+export(create_shinylive_url)
 importFrom(glue,glue_data)
 importFrom(jsonlite,toJSON)
 importFrom(jsonlite,unbox)

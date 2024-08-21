@@ -15,3 +15,7 @@ create_shinylive_url(code)
 \description{
 Creates Shinylive url for the app code.
 }
+\examples{
+code <- "this is your app code as a string"
+create_shinylive_url(code)
+}
