@@ -160,26 +160,39 @@ roxy_tag_rd.roxy_tag_examplesShinylive <- function(x, base_path, env) {
 #' @noRd
 #' @exportS3Method format rd_section_examplesShinylive
 format.rd_section_examplesShinylive <- function(x, ...) {
+  wrap_style <- paste0(
+    "style=\"",
+    paste(
+      "height: 800px",
+      sep = "; "
+    ),
+    "\""
+  )
   iframe_attrs <- paste(
-    "height=\"800\"",
-    "width=\"150\\%\"", # @TODO: find a better way to set the width
+    "height=\"125\\%\"",
+    "width=\"125\\%\"",
     "allow=\"fullscreen\"",
     "scrolling=\"auto\"",
     sep = " "
   )
-  iframe_style <- paste(
-    "border: 1px solid rgba(0,0,0,0.175);",
-    "border-radius: .375rem;",
-    sep = " "
+  iframe_style <- paste0(
+    "style=\"",
+    paste(
+      "border: 1px solid rgba(0,0,0,0.175)",
+      "border-radius: .375rem",
+      "-webkit-transform: scale(0.8)",
+      "-webkit-transform-origin: 0 0",
+      sep = "; "
+    ),
+    "\""
   )
-  iframe_style <- paste0("style=\"", iframe_style, "\"")
   paste0(
     "\\section{Examples in Shinylive}{\n",
     "\\itemize{\n",
     paste0(
       "  \\item example-", seq_along(x$value), "\\cr\n",
       "    \\href{", x$value, "}{Open in Shinylive}\\cr\n",
-      "    \\if{html}{\\out{<iframe src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe>}}\n",
+      "    \\if{html}{\\out{<div ", wrap_style, "><iframe src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe></div>}}\n", # nolint: line_length_linter.
       collapse = ""
     ),
     "}\n",
