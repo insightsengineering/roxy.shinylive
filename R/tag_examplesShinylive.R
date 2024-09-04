@@ -164,13 +164,12 @@ format.rd_section_examplesShinylive <- function(x, ...) {
     "style=\"",
     paste(
       "height: 800px",
+      "width: 100\\%",
       sep = "; "
     ),
     "\""
   )
   iframe_attrs <- paste(
-    "height=\"125\\%\"",
-    "width=\"125\\%\"",
     "allow=\"fullscreen\"",
     "scrolling=\"auto\"",
     sep = " "
@@ -178,21 +177,36 @@ format.rd_section_examplesShinylive <- function(x, ...) {
   iframe_style <- paste0(
     "style=\"",
     paste(
+      "height: 100\\%",
+      "width: 100\\%",
       "border: 1px solid rgba(0,0,0,0.175)",
       "border-radius: .375rem",
-      "-webkit-transform: scale(0.8)",
-      "-webkit-transform-origin: 0 0",
       sep = "; "
     ),
     "\""
   )
+  jscode <- "
+$(function() {
+  var if_pkgdown = [...document.scripts].filter(x => x.src.includes('pkgdown.js')).length > 0;
+  if (if_pkgdown) {
+    $('.iframe-wrapper').css('width', '140%');
+  }
+});"
   paste0(
     "\\section{Examples in Shinylive}{\n",
     "\\itemize{\n",
     paste0(
       "  \\item example-", seq_along(x$value), "\\cr\n",
       "    \\href{", x$value, "}{Open in Shinylive}\\cr\n",
-      "    \\if{html}{\\out{<div ", wrap_style, "><iframe src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe></div>}}\n", # nolint: line_length_linter.
+      "    \\if{html}{\n",
+      "      \\out{\n",
+      "        <div class = \"iframe-wrapper\" ", wrap_style, ">\n",
+      "          <script type=\"text/javascript\">", jscode, "\n",
+      "          </script>\n",
+      "          <iframe src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe>\n",
+      "        </div>\n",
+      "      }\n",
+      "    }\n",
       collapse = ""
     ),
     "}\n",
