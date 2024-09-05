@@ -160,23 +160,14 @@ roxy_tag_rd.roxy_tag_examplesShinylive <- function(x, base_path, env) {
 #' @noRd
 #' @exportS3Method format rd_section_examplesShinylive
 format.rd_section_examplesShinylive <- function(x, ...) {
-  wrap_style <- paste0(
-    "style=\"",
-    paste(
-      "height: 800px",
-      "width: 100\\%",
-      sep = "; "
-    ),
-    "\""
-  )
   iframe_attrs <- paste(
-    "scrolling=\"auto\"",
+    "allowfullscreen",
     sep = " "
   )
   iframe_style <- paste0(
     "style=\"",
     paste(
-      "height: 100\\%",
+      "height: 800px",
       "width: 100\\%",
       "border: 1px solid rgba(0,0,0,0.175)",
       "border-radius: .375rem",
@@ -189,27 +180,21 @@ format.rd_section_examplesShinylive <- function(x, ...) {
 $(function() {
   var if_pkgdown = [...document.scripts].filter(x => x.src.includes(\"pkgdown.js\")).length > 0;
   if (if_pkgdown) {
-    $(\".iframe-wrapper\").css(\"width\", \"140\\%\");
+    $(\"iframe.iframe_shinylive\").css(\"width\", \"140\\%\");
   }
 });"
   paste0(
     "\\section{Examples in Shinylive}{\n",
-    "\\itemize{\n",
+    "\\describe{\n",
     paste0(
-      "\\item example-", seq_along(x$value), "\\cr\n",
-      "\\href{", x$value, "}{Open in Shinylive}\\cr\n",
-      "\\if{html}{\n",
-      # there must be no break lines inside `out{}` - otherwise there is a R CMD CHECK warning
-      "\\out{",
-      "<div class = \"iframe-wrapper\" ", wrap_style, ">",
-      "<script type=\"text/javascript\">", gsub("\n", "", jscode), "</script>",
-      "<iframe src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe>",
-      "</div>",
-      "}\n",
-      "}\\cr\n",
+      "  \\item{example-", seq_along(x$value), "}{\n",
+      "    \\href{", x$value, "}{Open in Shinylive}\n",
+      "    \\if{html}{\\out{<script type=\"text/javascript\">", gsub("\n", "", jscode), "</script>}}\n",
+      "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe>}}\n",
+      "  }\n",
       collapse = ""
     ),
-    "  }\n",
+    "}\n",
     "}\n"
   )
 }

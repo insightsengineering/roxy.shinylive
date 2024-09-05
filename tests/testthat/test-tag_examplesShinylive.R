@@ -257,8 +257,6 @@ test_that("examplesShinylive tag - keywords - error when parsing with glue", {
   expect_false(roxygen2::block_has_tags(block, "examplesShinylive"))
 })
 
-
-
 test_that("examplesShinylive tag - decorate using {{next_example}} keyword", {
   text <- "
     #' This is a title
@@ -292,4 +290,65 @@ test_that("examplesShinylive tag - decorate using {{next_example}} keyword", {
     roxygen2::block_get_tag_value(block, "examplesShinylive"),
     "https://shinylive.io/r/app/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMADwEYACAHgFp6GBie0gCwEsBnegKEQCAGwCuAEzhSAOhAUAzABS1c9AEwBKBdU1NWBzj2FnRkmVLABfALpA" # nolint: line_length_linter.
   )
+})
+
+
+
+test_that("format returns Rd parsable to HTML", {
+  testthat::skip_if_not_installed("pkgdown")
+
+  text <- "
+    #' This is a title
+    #'
+    #' This is the description.
+    #'
+    #' @param x,y A number
+    #' @export
+    #' @examplesShinylive
+    #' @examples
+    #' f(1, 2)
+    f <- function(x, y) x + y
+  "
+
+  topic <- roxygen2::roc_proc_text(roxygen2::rd_roclet(), text)[[1]]
+  rd_code <- capture.output(topic$get_section("examplesShinylive"))
+  suppressWarnings(expect_no_warning(html_code <- pkgdown::rd2html(rd_code), message = ".*unexpected END_OF_INPUT.*"))
+  expect_gt(length(html_code), 0)
+})
+
+test_that("format returns Rd parsable to tidy HTML", {
+  testthat::skip_if_not_installed("pkgdown")
+  testthat::skip_if_not_installed("withr")
+  testthat::skip_if_not(
+    nzchar(Sys.which("tidy")),
+    "tidy is not installed"
+  )
+
+  text <- "
+    #' This is a title
+    #'
+    #' This is the description.
+    #'
+    #' @param x,y A number
+    #' @export
+    #' @examplesShinylive
+    #' @examples
+    #' f(1, 2)
+    f <- function(x, y) x + y
+  "
+
+  topic <- roxygen2::roc_proc_text(roxygen2::rd_roclet(), text)[[1]]
+  rd_code <- capture.output(topic$get_section("examplesShinylive"))
+  html_code <- paste0(suppressWarnings(pkgdown::rd2html(rd_code)), collapse = "\n")
+  withr::with_tempfile("x", {
+    writeLines(html_code, x)
+    # https://github.com/wch/r-source/blob/7450caaef0076c8b43dfdcc0deab1dbe646b8fc4/src/library/tools/R/htmltools.R#L19
+    tidy_res <- suppressWarnings(system2(
+      "tidy",
+      c("-language en", "-qe", x),
+      stdout = TRUE, stderr = TRUE)
+    )
+    tidy_res <- grep("line 1 column 1", tidy_res, value = TRUE, invert = TRUE)
+    testthat::expect_setequal(tidy_res, character(0))
+  })
 })

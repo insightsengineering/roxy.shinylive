@@ -19,6 +19,7 @@ Imports:
     roxygen2 (>= 7.1.1),
     stringr (>= 0.4)
 Suggests:
+    pkgdown (>= 1.2.0),
     testthat (>= 3.0.4),
     withr (>= 2.4.3)
 Config/Needs/verdepcheck:
@@ -27,7 +28,9 @@ Config/Needs/verdepcheck:
     lzstring=parmsam/lzstring-r,
     r-lib/roxygen2,
     tidyverse/stringr,
-    r-lib/testthat
+    r-lib/pkgdown,
+    r-lib/testthat,
+    r-lib/withr
 Config/Needs/website: insightsengineering/nesttemplate
 Encoding: UTF-8
 Language: en-US
