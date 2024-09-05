@@ -190,7 +190,7 @@ $(function() {
       "  \\item{example-", seq_along(x$value), "}{\n",
       "    \\href{", x$value, "}{Open in Shinylive}\n",
       "    \\if{html}{\\out{<script type=\"text/javascript\">", gsub("\n", "", jscode), "</script>}}\n",
-      "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe>}}\n",
+      "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe>}}\n", # nolint: line_length_linter.
       "  }\n",
       collapse = ""
     ),
