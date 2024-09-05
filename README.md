@@ -31,15 +31,17 @@ Which would produce a following output in your documentation:
 
 ```Rd
 \section{Examples in Shinylive}{
-\itemize{
-  \item example-1\cr
-    \href{https://shinylive.io/r/app/#code=...}{Open in Shinylive}\cr
-    \if{html}{\out{<iframe src="https://shinylive.io/r/app/#code=..." ..."></iframe>}}
-  \item example-2\cr
-    \href{https://shinylive.io/r/app/#code=...}{Open in Shinylive}\cr
-    \if{html}{\out{<iframe src="https://shinylive.io/r/app/#code=..." ..."></iframe>}}
-  ...
-}
+  \itemize{
+    \item{example-1}{\cr
+      \href{https://shinylive.io/r/app/#code=...}{Open in Shinylive}\cr
+      \if{html}{\out{ ... (HTML code including <iframe> to Shinylive) }}
+    }
+    \item{example-2}{\cr
+      \href{https://shinylive.io/r/app/#code=...}{Open in Shinylive}\cr
+      \if{html}{\out{ ... (HTML code including <iframe> to Shinylive) }}
+    }
+    ...
+  }
 }
 ```
 
