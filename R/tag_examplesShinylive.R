@@ -185,11 +185,12 @@ format.rd_section_examplesShinylive <- function(x, ...) {
     ),
     "\""
   )
+  # If in pkgdown website - increase the width
   jscode <- "
 $(function() {
-  var if_pkgdown = [...document.scripts].filter(x => x.src.includes('pkgdown.js')).length > 0;
+  var if_pkgdown = [...document.scripts].filter(x => x.src.includes(\"pkgdown.js\")).length > 0;
   if (if_pkgdown) {
-    $('.iframe-wrapper').css('width', '140%');
+    $(\".iframe-wrapper\").css(\"width\", \"140\\%\");
   }
 });"
   paste0(
@@ -199,12 +200,13 @@ $(function() {
       "  \\item example-", seq_along(x$value), "\\cr\n",
       "    \\href{", x$value, "}{Open in Shinylive}\\cr\n",
       "    \\if{html}{\n",
-      "      \\out{\n",
-      "        <div class = \"iframe-wrapper\" ", wrap_style, ">\n",
-      "          <script type=\"text/javascript\">", jscode, "\n",
-      "          </script>\n",
-      "          <iframe src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe>\n",
-      "        </div>\n",
+      # there must be no break lines inside `out{}` - otherwise there is a R CMD CHECK warning
+      "      \\out{",
+      "        <div class = \"iframe-wrapper\" ", wrap_style, ">",
+      "          <script type=\"text/javascript\">", gsub("\n", "", jscode),
+      "          </script>",
+      "          <iframe src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe>",
+      "        </div>",
       "      }\n",
       "    }\n",
       collapse = ""
