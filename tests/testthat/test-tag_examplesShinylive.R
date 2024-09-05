@@ -346,8 +346,8 @@ test_that("format returns Rd parsable to tidy HTML", {
     tidy_res <- suppressWarnings(system2(
       "tidy",
       c("-language en", "-qe", x),
-      stdout = TRUE, stderr = TRUE)
-    )
+      stdout = TRUE, stderr = TRUE
+    ))
     tidy_res <- grep("line 1 column 1", tidy_res, value = TRUE, invert = TRUE)
     testthat::expect_setequal(tidy_res, character(0))
   })
