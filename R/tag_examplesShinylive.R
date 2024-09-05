@@ -195,23 +195,24 @@ $(function() {
 });"
   paste0(
     "\\section{Examples in Shinylive}{\n",
-    "\\itemize{\n",
+    "  \\itemize{\n",
     paste0(
-      "  \\item example-", seq_along(x$value), "\\cr\n",
-      "    \\href{", x$value, "}{Open in Shinylive}\\cr\n",
-      "    \\if{html}{\n",
+      "    \\item{example-", seq_along(x$value), "}{\\cr\n",
+      "      \\href{", x$value, "}{Open in Shinylive}\\cr\n",
+      "      \\if{html}{\n",
       # there must be no break lines inside `out{}` - otherwise there is a R CMD CHECK warning
-      "      \\out{",
-      "        <div class = \"iframe-wrapper\" ", wrap_style, ">",
-      "          <script type=\"text/javascript\">", gsub("\n", "", jscode),
-      "          </script>",
-      "          <iframe src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe>",
-      "        </div>",
+      "        \\out{",
+      "          <div class = \"iframe-wrapper\" ", wrap_style, ">",
+      "            <script type=\"text/javascript\">", gsub("\n", "", jscode),
+      "            </script>",
+      "            <iframe src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe>",
+      "          </div>",
+      "        }\n",
       "      }\n",
       "    }\n",
       collapse = ""
     ),
-    "}\n",
+    "  }\n",
     "}\n"
   )
 }
