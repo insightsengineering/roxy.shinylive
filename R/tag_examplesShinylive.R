@@ -171,6 +171,8 @@ format.rd_section_examplesShinylive <- function(x, ...) {
       "width: 100\\%",
       "border: 1px solid rgba(0,0,0,0.175)",
       "border-radius: .375rem",
+      "position: relative",
+      "z-index: 1",
       sep = "; "
     ),
     "\""
