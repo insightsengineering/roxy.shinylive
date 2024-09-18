@@ -13,7 +13,7 @@ If no code is provided then the code is taken from the following \verb{@examples
 }
 \details{
 The application code must be executable inside Shinylive. If the application code includes functions from your
-package, you must add \verb{library(<your package>)} beforehand. For more information, refer to the Decoration section
+package, you must add \verb{library(<package>)} beforehand. For more information, refer to the Decoration section
 on how to use and decorate existing examples.
 
 Note: All the packages used in the application code need to be installable in WebR.
@@ -22,17 +22,18 @@ See \href{https://docs.r-wasm.org/webr/latest/packages.html}{this article} for m
 \section{Decoration}{
 
 
-To avoid repetition between the \verb{@examplesShinylive} and \verb{@examples} sections, there are special string literals
-that provide access to the other tags from within the content of \verb{@examplesShinylive}.
+To avoid repetition between the \verb{@examplesShinylive} and \verb{@examples} sections contents,
+there are special string literals to be used inside \verb{@examplesShinylive} tag content
+that allow you to access the content(s) of the \verb{@examples} or \verb{@examplesIf} tags.
 These literals should be used as expressions embraced with \code{{{ }}}, which are then interpolated using
 \code{glue::glue_data(..., .open = "{{", .close = "}}")}.
 
 The following keywords are available:
 \itemize{
+\item \code{"{{ next_example }}"} - (the default if empty) "raw" element of the next example
+\item \code{"{{ prev_example }}"} - "raw" element of the previous example
 \item \code{"{{ tags_examples }}"} - a list of \verb{@examples} or \verb{@examplesIf} tags
 \item \code{"{{ examples }}"} - a list of "raw" elements from \code{tags_examples} list elements
-\item \code{"{{ next_example }}"} - "raw" element of the next example
-\item \code{"{{ prev_example }}"} - "raw" element of the previous example
 }
 
 This allows you to access and decorate existing example code to create executable application code for Shinylive.
@@ -48,19 +49,28 @@ Refer to the examples section for possible use cases.
 #' @examples
 #' (example code)
 
-# using keywords:
+# using keywords - `{{ next_example }}`:
 #' (docs)
 #' @examplesShinylive
 #' foo <- 1
 #' {{ next_example }}
 #' bar <- 2
 #' @examples
-#' (your example code)
+#' (example code)
+
+# using keywords - `{{ prev_example }}`:
+#' (docs)
+#' bar <- 2
+#' @examples
+#' (example code)
+#' @examplesShinylive
+#' foo <- 1
+#' {{ prev_example }}
 
 # A typical example would be:
 #' (docs)
 #' @examplesShinylive
-#' library(<your package>)
+#' library(<package>)
 #' interactive <- function() TRUE
 #' {{ next_example }}
 #' @examples
@@ -73,18 +83,18 @@ Refer to the examples section for possible use cases.
 #' (docs)
 #' @examplesShinylive
 #' @examples
-#' (your example app 1)
+#' (example app 1)
 #' @examplesShinylive
 #' @examples
-#' (your example app 2)
+#' (example app 2)
 
 # skip parts of example code:
 #' (docs)
 #' @examples
-#' (your example code - skipped)
+#' (example code - skipped)
 #' @examplesShinylive
 #' @examples
-#' (your example code - included)
+#' (example code - included)
 
 # multiple apps with keywords:
 #' (docs)
@@ -92,10 +102,28 @@ Refer to the examples section for possible use cases.
 #' x <- 1
 #' {{ next_example }}
 #' @examples
-#' (your example app 1)
+#' (example app 1)
 #' @examplesShinylive
 #' y <- 1
 #' {{ next_example }}
 #' @examples
-#' (your example app 2)
+#' (example app 2)
+
+# combining multiple examples:
+#' (docs)
+#' @examples
+#' (app pre-requisites)
+#' @examples
+#' (example app)
+#' @examplesShinylive
+#' {{ paste0(examples, collapse = ", ") }}
+
+# identical to the above example but with a different approach:
+#' (docs)
+#' @examples
+#' (app pre-requisites)
+#' @examples
+#' (example app)
+#' @examplesShinylive
+#' {{ paste0(lapply(tags_examples, `[[`, "raw"), collapse = ", ") }}
 }

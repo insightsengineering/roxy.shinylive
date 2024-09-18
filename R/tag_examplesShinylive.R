@@ -5,7 +5,7 @@
 #' If no code is provided then the code is taken from the following `@examples` or `@examplesIf` tag.
 #'
 #' The application code must be executable inside Shinylive. If the application code includes functions from your
-#' package, you must add `library(<your package>)` beforehand. For more information, refer to the Decoration section
+#' package, you must add `library(<package>)` beforehand. For more information, refer to the Decoration section
 #' on how to use and decorate existing examples.
 #'
 #' Note: All the packages used in the application code need to be installable in WebR.
@@ -13,16 +13,17 @@
 #'
 #' @section Decoration:
 #'
-#' To avoid repetition between the `@examplesShinylive` and `@examples` sections, there are special string literals
-#' that provide access to the other tags from within the content of `@examplesShinylive`.
+#' To avoid repetition between the `@examplesShinylive` and `@examples` sections contents,
+#' there are special string literals to be used inside `@examplesShinylive` tag content
+#' that allow you to access the content(s) of the `@examples` or `@examplesIf` tags.
 #' These literals should be used as expressions embraced with `{{ }}`, which are then interpolated using
 #' `glue::glue_data(..., .open = "{{", .close = "}}")`.
 #'
 #' The following keywords are available:
+#' * `"{{ next_example }}"` - (the default if empty) "raw" element of the next example
+#' * `"{{ prev_example }}"` - "raw" element of the previous example
 #' * `"{{ tags_examples }}"` - a list of `@examples` or `@examplesIf` tags
 #' * `"{{ examples }}"` - a list of "raw" elements from `tags_examples` list elements
-#' * `"{{ next_example }}"` - "raw" element of the next example
-#' * `"{{ prev_example }}"` - "raw" element of the previous example
 #'
 #' This allows you to access and decorate existing example code to create executable application code for Shinylive.
 #' Refer to the examples section for possible use cases.
@@ -41,19 +42,28 @@
 #' #' @examples
 #' #' (example code)
 #'
-#' # using keywords:
+#' # using keywords - `{{ next_example }}`:
 #' #' (docs)
 #' #' @examplesShinylive
 #' #' foo <- 1
 #' #' {{ next_example }}
 #' #' bar <- 2
 #' #' @examples
-#' #' (your example code)
+#' #' (example code)
+#'
+#' # using keywords - `{{ prev_example }}`:
+#' #' (docs)
+#' #' bar <- 2
+#' #' @examples
+#' #' (example code)
+#' #' @examplesShinylive
+#' #' foo <- 1
+#' #' {{ prev_example }}
 #'
 #' # A typical example would be:
 #' #' (docs)
 #' #' @examplesShinylive
-#' #' library(<your package>)
+#' #' library(<package>)
 #' #' interactive <- function() TRUE
 #' #' {{ next_example }}
 #' #' @examples
@@ -66,18 +76,18 @@
 #' #' (docs)
 #' #' @examplesShinylive
 #' #' @examples
-#' #' (your example app 1)
+#' #' (example app 1)
 #' #' @examplesShinylive
 #' #' @examples
-#' #' (your example app 2)
+#' #' (example app 2)
 #'
 #' # skip parts of example code:
 #' #' (docs)
 #' #' @examples
-#' #' (your example code - skipped)
+#' #' (example code - skipped)
 #' #' @examplesShinylive
 #' #' @examples
-#' #' (your example code - included)
+#' #' (example code - included)
 #'
 #' # multiple apps with keywords:
 #' #' (docs)
@@ -85,12 +95,30 @@
 #' #' x <- 1
 #' #' {{ next_example }}
 #' #' @examples
-#' #' (your example app 1)
+#' #' (example app 1)
 #' #' @examplesShinylive
 #' #' y <- 1
 #' #' {{ next_example }}
 #' #' @examples
-#' #' (your example app 2)
+#' #' (example app 2)
+#'
+#' # combining multiple examples:
+#' #' (docs)
+#' #' @examples
+#' #' (app pre-requisites)
+#' #' @examples
+#' #' (example app)
+#' #' @examplesShinylive
+#' #' {{ paste0(examples, collapse = ", ") }}
+#'
+#' # identical to the above example but with a different approach:
+#' #' (docs)
+#' #' @examples
+#' #' (app pre-requisites)
+#' #' @examples
+#' #' (example app)
+#' #' @examplesShinylive
+#' #' {{ paste0(lapply(tags_examples, `[[`, "raw"), collapse = ", ") }}
 NULL
 
 #' @noRd
@@ -160,10 +188,6 @@ roxy_tag_rd.roxy_tag_examplesShinylive <- function(x, base_path, env) {
 #' @noRd
 #' @exportS3Method format rd_section_examplesShinylive
 format.rd_section_examplesShinylive <- function(x, ...) {
-  iframe_attrs <- paste(
-    "allowfullscreen",
-    sep = " "
-  )
   iframe_style <- paste0(
     "style=\"",
     paste(
@@ -192,7 +216,7 @@ $(function() {
       "  \\item{example-", seq_along(x$value), "}{\n",
       "    \\href{", x$value, "}{Open in Shinylive}\n",
       "    \\if{html}{\\out{<script type=\"text/javascript\">", gsub("\n", "", jscode), "</script>}}\n",
-      "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_attrs, " ", iframe_style, "></iframe>}}\n", # nolint: line_length_linter.
+      "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_style, "></iframe>}}\n", # nolint: line_length_linter.
       "  }\n",
       collapse = ""
     ),
