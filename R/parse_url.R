@@ -16,7 +16,7 @@
 #' create_shinylive_url(code)
 create_shinylive_url <- function(code, mode = c("app", "editor"), header = TRUE) {
   stopifnot(is.character(code) && length(code) == 1)
-  match.arg(mode)
+  mode <- match.arg(mode)
   stopifnot(is.logical(header) && length(header) == 1)
 
   # implementation based on "Create ShinyLive Link" feature of Shiny VSCode extension
