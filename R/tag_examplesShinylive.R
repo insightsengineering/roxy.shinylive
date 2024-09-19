@@ -1,7 +1,7 @@
-#' Custom `examplesShinylive` tag.
+#' Custom `@examplesShinylive` tag.
 #'
-#' This function generates a new "Examples in Shinylive" section in the documentation. This section contains URL to
-#' the application in Shinylive as well as an iframe with the application.
+#' This function generates a new "Examples in Shinylive" section in the documentation.
+#' This section contains URL to the application in Shinylive and for HTML outputs: an iframe with the application.
 #' If no code is provided then the code is taken from the following `@examples` or `@examplesIf` tag.
 #'
 #' The application code must be executable inside Shinylive. If the application code includes functions from your

@@ -2,13 +2,13 @@
 % Please edit documentation in R/tag_examplesShinylive.R
 \name{tag-examplesShinylive}
 \alias{tag-examplesShinylive}
-\title{Custom \code{examplesShinylive} tag.}
+\title{Custom \verb{@examplesShinylive} tag.}
 \usage{
 #' @examplesShinylive${1:# example code (optional)}
 }
 \description{
-This function generates a new "Examples in Shinylive" section in the documentation. This section contains URL to
-the application in Shinylive as well as an iframe with the application.
+This function generates a new "Examples in Shinylive" section in the documentation.
+This section contains URL to the application in Shinylive and for HTML outputs: an iframe with the application.
 If no code is provided then the code is taken from the following \verb{@examples} or \verb{@examplesIf} tag.
 }
 \details{

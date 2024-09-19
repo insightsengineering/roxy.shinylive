@@ -2,18 +2,23 @@
 % Please edit documentation in R/parse_url.R
 \name{create_shinylive_url}
 \alias{create_shinylive_url}
-\title{Creates Shinylive url for the app code.}
+\title{Creates Shinylive url based on app code.}
 \usage{
-create_shinylive_url(code)
+create_shinylive_url(code, mode = c("app", "editor"), header = TRUE)
 }
 \arguments{
 \item{code}{(\code{character(1)}) A string with app code.}
+
+\item{mode}{(\code{character(1)}) A string with mode. One of "app" or "editor".}
+
+\item{header}{(\code{logical(1)}) A logical value indicating whether to include header.
+Ignored if \code{mode} is "editor".}
 }
 \value{
 (\code{character(1)}) Shinylive app url.
 }
 \description{
-Creates Shinylive url for the app code.
+Creates Shinylive url based on app code.
 }
 \examples{
 code <- "this is your app code as a string"
