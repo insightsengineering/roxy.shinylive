@@ -14,6 +14,7 @@ pak::pak("insightsengineering/roxy.shinylive")
 ## Usage
 
 ### Creating a URL manually
+
 ```r
 code <- "\"Hello World\""
 roxy.shinylive::create_shinylive_url(code, mode = "editor")
@@ -21,7 +22,7 @@ roxy.shinylive::create_shinylive_url(code, mode = "editor")
 
 This returns the following URL:
 
-https://shinylive.io/r/editor/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAHTAAk4AbRogAgHUiAnRgE1rABfALpA
+<https://shinylive.io/r/editor/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAHTAAk4AbRogAgHUiAnRgE1rABfALpA>
 
 ### In the roxygen2 documentation
 
