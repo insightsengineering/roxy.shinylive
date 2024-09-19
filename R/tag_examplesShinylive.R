@@ -206,7 +206,7 @@ format.rd_section_examplesShinylive <- function(x, ...) {
 $(function() {
   var if_pkgdown = [...document.scripts].filter(x => x.src.includes(\"pkgdown.js\")).length > 0;
   if (if_pkgdown) {
-    $(\"iframe.iframe_shinylive\").css(\"width\", \"140\\%\");
+    $(\"iframe.iframe_shinylive\").css(\"width\", \"150\\%\");
   }
 });"
   paste0(
