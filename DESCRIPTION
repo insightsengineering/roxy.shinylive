@@ -21,7 +21,7 @@ Imports:
     stringr (>= 0.4)
 Suggests:
     pkgdown (>= 2.0.0),
-    testthat (>= 3.0.4),
+    testthat (>= 3.1.5),
     withr (>= 2.4.3)
 Config/Needs/verdepcheck: tidyverse/glue, jeroen/jsonlite,
     lzstring=parmsam/lzstring-r, r-lib/roxygen2, tidyverse/stringr,
