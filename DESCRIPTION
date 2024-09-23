@@ -15,7 +15,7 @@ Depends:
     R (>= 4.0)
 Imports:
     glue,
-    jsonlite (>= 1.8.3),
+    jsonlite (>= 1.8.4),
     lzstring,
     roxygen2 (>= 7.2.0),
     stringr (>= 0.4)
