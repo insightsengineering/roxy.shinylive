@@ -132,7 +132,7 @@ roxy_tag_parse.roxy_tag_examplesShinylive <- function(x) {
   }
 
   # not elegant but this is the most efficient way to access sibling tags
-  tokens <- get("tokens", envir = parent.frame(3L))
+  tokens <- dynGet("tokens")
 
   tags_examples <- Filter(function(x) x$tag %in% c("examples", "examplesIf"), tokens)
 
