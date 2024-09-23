@@ -8,15 +8,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build package 🎁
-    needs: release
-    uses: insightsengineering/r.pkg.template/.github/workflows/build-check-install.yaml@main
-    secrets:
-      REPO_GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
-    with:
-      skip-r-cmd-check: true
-      skip-r-cmd-install: true
   docs:
     name: Pkgdown Docs 📚
     needs: release
@@ -36,6 +27,25 @@ jobs:
     uses: insightsengineering/r.pkg.template/.github/workflows/release.yaml@main
     secrets:
       REPO_GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+  build:
+    name: Build package and reports 🎁
+    needs: [release, docs]
+    uses: insightsengineering/r.pkg.template/.github/workflows/build-check-install.yaml@main
+    secrets:
+      REPO_GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+    with:
+      additional-env-vars: |
+        _R_CHECK_CRAN_INCOMING_REMOTE_=false
+      additional-r-cmd-check-params: --as-cran
+  coverage:
+    name: Coverage 📔
+    needs: [release, docs]
+    uses: insightsengineering/r.pkg.template/.github/workflows/test-coverage.yaml@main
+    secrets:
+      REPO_GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+    with:
+      additional-env-vars: |
+        NOT_CRAN=true
   wasm:
     name: Build WASM packages 🧑‍🏭
     needs: release
