@@ -20,7 +20,7 @@ Imports:
     roxygen2 (>= 7.1.1),
     stringr (>= 0.4)
 Suggests:
-    pkgdown (>= 1.5.0),
+    pkgdown (>= 1.5.1),
     testthat (>= 3.0.4),
     withr (>= 2.4.3)
 Config/Needs/verdepcheck: tidyverse/glue, jeroen/jsonlite,
