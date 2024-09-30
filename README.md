@@ -29,7 +29,7 @@ This returns the following URL:
 In your `DESCRIPTION` file, add the following:
 
 ```yaml
-Roxygen: list(markdown = TRUE, packages = c("roxy.shinylive"))
+Roxygen: list(..., packages = c(..., "roxy.shinylive"))
 ```
 
 Then in your package documentation:
@@ -95,3 +95,5 @@ knitr::include_url(url, height = "800px")
 ![example of vignette](inst/vignette.gif)
 
 See the package documentation for more details.
+
+See the example implementation in the [`teal.modules.general`](https://insightsengineering.github.io/teal.modules.general/) or [`teal.modules.clinical`](https://insightsengineering.github.io/teal.modules.clinical/) packages.
