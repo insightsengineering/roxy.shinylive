@@ -4,7 +4,7 @@
 #' @importFrom lzstring compressToEncodedURIComponent
 #'
 #' @param code (`character(1)`) A string with app code.
-#' @param mode (`character(1)`) A string with mode. One of "app" or "editor".
+#' @param mode (`character(1)`) A string with mode. One of "app" or "editor". Default is "app".
 #' @param header (`logical(1)`) A logical value indicating whether to include header.
 #' Ignored if `mode` is "editor".
 #' @return (`character(1)`) Shinylive app url.
@@ -14,6 +14,8 @@
 #' @examples
 #' code <- "this is your app code as a string"
 #' create_shinylive_url(code)
+#' create_shinylive_url(code, header = FALSE)
+#' create_shinylive_url(code, mode = "editor")
 create_shinylive_url <- function(code, mode = c("app", "editor"), header = TRUE) {
   stopifnot(is.character(code) && length(code) == 1)
   mode <- match.arg(mode)
