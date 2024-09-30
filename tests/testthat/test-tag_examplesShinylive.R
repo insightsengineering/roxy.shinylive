@@ -1,4 +1,5 @@
 test_that("examplesShinylive tag - errors - missing @examples", {
+  skip_if_not(packageVersion("roxygen2") >= "7.3.0")
   text <- "
     #' This is a title
     #'
@@ -240,6 +241,7 @@ test_that("examplesShinylive tag - keywords - {{tags_examples}}", {
 })
 
 test_that("examplesShinylive tag - keywords - error when parsing with glue", {
+  skip_if_not(packageVersion("roxygen2") >= "7.3.0")
   text <- "
     #' This is a title
     #'
