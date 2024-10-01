@@ -61,7 +61,7 @@ Which would produce a following output in your documentation:
 }
 ```
 
-![example of function](inst/function.gif)
+![example of function](man/figures/function.gif)
 
 ### In the vignettes
 
@@ -92,7 +92,7 @@ knitr::include_url(url, height = "800px")
 ```
 ````
 
-![example of vignette](inst/vignette.gif)
+![example of vignette](man/figures/vignette.gif)
 
 See the package documentation for more details.
 
