@@ -1,7 +1,7 @@
 Type: Package
 Package: roxy.shinylive
 Title: A Roxygen2 Extension for Shinylive
-Version: 0.0.0.9006
+Version: 0.0.0.9007
 Authors@R: c(
     person("Pawel Rucki", , , "pawel.rucki@roche.com", role = c("aut", "cre")),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
@@ -16,13 +16,15 @@ Depends:
 Imports:
     glue,
     jsonlite (>= 1.8.6),
-    lzstring,
+    lzstring (>= 0.1.3),
     roxygen2 (>= 7.2.0),
     stringr (>= 0.4)
 Suggests:
     pkgdown (>= 2.0.0),
     testthat (>= 3.1.5),
     withr (>= 2.4.3)
+Remotes:
+    lzstring=parmsam/lzstring-r
 Config/Needs/verdepcheck: tidyverse/glue, jeroen/jsonlite,
     lzstring=parmsam/lzstring-r, r-lib/roxygen2, tidyverse/stringr,
     r-lib/pkgdown, r-lib/testthat, r-lib/withr
