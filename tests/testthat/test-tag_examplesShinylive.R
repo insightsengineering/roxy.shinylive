@@ -84,7 +84,7 @@ test_that("examplesShinylive tag - multiple occurrences", {
   )
 })
 
-test_that("examplesShinylive tag - don't use previous example code", {
+test_that("examplesShinylive tag - on default use only next example code", {
   text <- "
     #' This is a title
     #'
@@ -94,10 +94,10 @@ test_that("examplesShinylive tag - don't use previous example code", {
     #' @export
     #'
     #' @examples
-    #' x <- 'this is excluded'
+    #' 'this is excluded'
     #' @examplesShinylive
     #' @examples
-    #' f(1, 2)
+    #' 'this is included'
     f <- function(x, y) x + y
   "
   expect_silent(block <- roxygen2::parse_text(text)[[1]])
@@ -108,11 +108,11 @@ test_that("examplesShinylive tag - don't use previous example code", {
   )
   expect_identical(
     roxygen2::block_get_tag(block, "examplesShinylive")$raw,
-    "\nf(1, 2)"
+    "\n'this is included'"
   )
   expect_identical(
     roxygen2::block_get_tag_value(block, "examplesShinylive"),
-    "https://shinylive.io/r/app/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAHQgDMAKARlwAIAmASjAF8BdIA"
+    "https://shinylive.io/r/app/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAHQgHJSALASwGcACNziAgGwFcAJnEF0wAXwC6QA"
   )
 })
 
@@ -353,4 +353,51 @@ test_that("format returns Rd parsable to tidy HTML", {
     tidy_res <- grep("line 1 column 1", tidy_res, value = TRUE, invert = TRUE)
     testthat::expect_setequal(tidy_res, character(0))
   })
+})
+
+test_that("examplesShinylive tag - respect order of tags - before examples", {
+  text <- "
+    #' This is a title
+    #'
+    #' This is the description.
+    #'
+    #' @param x,y A number
+    #' @export
+    #' @examplesShinylive
+    #' @examples
+    #' f(1, 2)
+    f <- function(x, y) x + y
+  "
+  expect_silent(block <- roxygen2::parse_text(text)[[1]])
+
+  block_tag_names <- vapply(block$tags, `[[`, character(1), "tag")
+
+  expect_lt(
+    which(block_tag_names == "examplesShinylive"),
+    which(block_tag_names == "examples")
+  )
+})
+
+test_that("examplesShinylive tag - respect order of tags - after examples", {
+  text <- "
+    #' This is a title
+    #'
+    #' This is the description.
+    #'
+    #' @param x,y A number
+    #' @export
+    #' @examples
+    #' f(1, 2)
+    #' @examplesShinylive
+    #' {{ prev_example }}
+    f <- function(x, y) x + y
+  "
+  expect_silent(block <- roxygen2::parse_text(text)[[1]])
+
+  block_tag_names <- vapply(block$tags, `[[`, character(1), "tag")
+
+  expect_gt(
+    which(block_tag_names == "examplesShinylive"),
+    which(block_tag_names == "examples")
+  )
 })
