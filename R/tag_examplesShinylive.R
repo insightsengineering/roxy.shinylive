@@ -192,7 +192,7 @@ format.rd_section_examplesShinylive <- function(x, ...) {
   iframe_style <- paste0(
     "style=\"",
     paste(
-      "height: ", app_height,
+      paste0("height: ", app_height),
       "width: 100vw",
       "border: 1px solid rgba(0,0,0,0.175)",
       "border-radius: .375rem",
