@@ -188,10 +188,11 @@ roxy_tag_rd.roxy_tag_examplesShinylive <- function(x, base_path, env) {
 #' @noRd
 #' @exportS3Method format rd_section_examplesShinylive
 format.rd_section_examplesShinylive <- function(x, ...) {
+  app_height <- "800px"
   iframe_style <- paste0(
     "style=\"",
     paste(
-      "height: 800px",
+      "height: ", app_height,
       "width: 100vw",
       "border: 1px solid rgba(0,0,0,0.175)",
       "border-radius: .375rem",
@@ -215,7 +216,7 @@ $(function() {
       "  \\item{example-", seq_along(x$value), "}{\n",
       "    \\href{", x$value, "}{Open in Shinylive}\n",
       "    \\if{html}{\\out{<script type=\"text/javascript\">", gsub("\n", "", jscode), "</script>}}\n",
-      "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_style, "></iframe><div style='height: 800px;'></div>}}\n", # nolint: line_length_linter.
+      "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_style, "></iframe><div style='height: ", app_height, ";'></div>}}\n", # nolint: line_length_linter.
       "  }\n",
       collapse = ""
     ),
