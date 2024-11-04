@@ -192,11 +192,13 @@ format.rd_section_examplesShinylive <- function(x, ...) {
     "style=\"",
     paste(
       "height: 800px",
-      "width: 100\\%",
+      "width: 100vw",
       "border: 1px solid rgba(0,0,0,0.175)",
       "border-radius: .375rem",
-      "position: relative",
+      "position: absolute",
       "z-index: 1",
+      "left: 0",
+      "margin-top: 30px",
       sep = "; "
     ),
     "\""
@@ -205,9 +207,6 @@ format.rd_section_examplesShinylive <- function(x, ...) {
   jscode <- "
 $(function() {
   var if_pkgdown = [...document.scripts].filter(x => x.src.includes(\"pkgdown.js\")).length > 0;
-  if (if_pkgdown) {
-    $(\"iframe.iframe_shinylive\").css(\"width\", \"150\\%\");
-  }
 });"
   paste0(
     "\\section{Examples in Shinylive}{\n",
@@ -216,7 +215,7 @@ $(function() {
       "  \\item{example-", seq_along(x$value), "}{\n",
       "    \\href{", x$value, "}{Open in Shinylive}\n",
       "    \\if{html}{\\out{<script type=\"text/javascript\">", gsub("\n", "", jscode), "</script>}}\n",
-      "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_style, "></iframe>}}\n", # nolint: line_length_linter.
+      "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_style, "></iframe><div style='height: 800px;'></div>}}\n", # nolint: line_length_linter.
       "  }\n",
       collapse = ""
     ),
