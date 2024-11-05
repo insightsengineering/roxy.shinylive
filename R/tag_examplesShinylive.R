@@ -189,17 +189,20 @@ roxy_tag_rd.roxy_tag_examplesShinylive <- function(x, base_path, env) {
 #' @exportS3Method format rd_section_examplesShinylive
 format.rd_section_examplesShinylive <- function(x, ...) {
   app_height <- "800px"
+  app_max_width <- "1400px"
   iframe_style <- paste0(
     "style=\"",
     paste(
       paste0("height: ", app_height),
       "width: 100vw",
+      paste0("max-width: ", app_max_width),
       "border: 1px solid rgba(0,0,0,0.175)",
       "border-radius: .375rem",
       "position: absolute",
-      "z-index: 1",
-      "left: 0",
+      "left: 50\\%",
       "margin-top: 30px",
+      "transform: translateX(-50\\%)",
+      "z-index: 1",
       sep = "; "
     ),
     "\""
