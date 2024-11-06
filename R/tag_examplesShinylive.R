@@ -214,7 +214,8 @@ format.rd_section_examplesShinylive <- function(x, ...) {
       "  \\item{example-", seq_along(x$value), "}{\n",
       "    \\href{", x$value, "}{Open in Shinylive}\n",
       "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_style, "></iframe>}}\n", # nolint: line_length_linter.
-      "    \\if{html}{\\out{<div style='height: ", app_height, "; display: block;'>&nbsp;</div>}}\n",
+      # empty a tag because Tidy complains about empty spans.
+      "    \\if{html}{\\out{<a style='height: ", app_height, "; display: block;'></a>}}\n",
       "  }\n",
       collapse = ""
     ),
