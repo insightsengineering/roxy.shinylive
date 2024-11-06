@@ -188,35 +188,34 @@ roxy_tag_rd.roxy_tag_examplesShinylive <- function(x, base_path, env) {
 #' @noRd
 #' @exportS3Method format rd_section_examplesShinylive
 format.rd_section_examplesShinylive <- function(x, ...) {
+  app_height <- "800px"
+  app_max_width <- "1400px"
   iframe_style <- paste0(
     "style=\"",
     paste(
-      "height: 800px",
-      "width: 100\\%",
+      paste0("height: ", app_height),
+      "width: 100vw",
+      paste0("max-width: ", app_max_width),
       "border: 1px solid rgba(0,0,0,0.175)",
       "border-radius: .375rem",
-      "position: relative",
+      "position: absolute",
+      "left: 50\\%",
+      "margin-top: 30px",
+      "transform: translateX(-50\\%)",
       "z-index: 1",
       sep = "; "
     ),
     "\""
   )
-  # If in pkgdown website - increase the width
-  jscode <- "
-$(function() {
-  var if_pkgdown = [...document.scripts].filter(x => x.src.includes(\"pkgdown.js\")).length > 0;
-  if (if_pkgdown) {
-    $(\"iframe.iframe_shinylive\").css(\"width\", \"150\\%\");
-  }
-});"
   paste0(
     "\\section{Examples in Shinylive}{\n",
     "\\describe{\n",
     paste0(
       "  \\item{example-", seq_along(x$value), "}{\n",
       "    \\href{", x$value, "}{Open in Shinylive}\n",
-      "    \\if{html}{\\out{<script type=\"text/javascript\">", gsub("\n", "", jscode), "</script>}}\n",
       "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_style, "></iframe>}}\n", # nolint: line_length_linter.
+      # empty a tag because Tidy complains about empty spans.
+      "    \\if{html}{\\out{<a style='height: ", app_height, "; display: block;'></a>}}\n",
       "  }\n",
       collapse = ""
     ),
