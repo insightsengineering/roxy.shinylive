@@ -213,7 +213,8 @@ format.rd_section_examplesShinylive <- function(x, ...) {
     paste0(
       "  \\item{example-", seq_along(x$value), "}{\n",
       "    \\href{", x$value, "}{Open in Shinylive}\n",
-      "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_style, "></iframe><div style='height: ", app_height, ";'></div>}}\n", # nolint: line_length_linter.
+      "    \\if{html}{\\out{<iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_style, "></iframe>}}\n", # nolint: line_length_linter.
+      "    \\if{html}{\\out{<div style='height: ", app_height, "; display: block;'>&nbsp;</div>}}\n",
       "  }\n",
       collapse = ""
     ),
