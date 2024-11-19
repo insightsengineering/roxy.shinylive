@@ -1,7 +1,7 @@
 Type: Package
 Package: roxy.shinylive
 Title: A Roxygen2 Extension for Shinylive
-Version: 0.0.0.9011
+Version: 1.0.0
 Authors@R: c(
     person("Pawel Rucki", , , "pawel.rucki@roche.com", role = c("aut", "cre")),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
