@@ -18,6 +18,7 @@ install.packages("roxy.shinylive")
 ```
 
 Alternatively, you might want to use the development version.
+
 ```r
 # install.packages("pak")
 pak::pak("insightsengineering/roxy.shinylive")
