@@ -2,7 +2,8 @@
 
 ## Overview
 
-This package provides a `roxygen2` extension that automatically takes the code from the `@examples` tag that follows and crate an URL to the shinylive service. During the documentation build, a new section is added to the function manual that contains aforementioned link as well as iframe to the application itself.
+This package provides a `roxygen2` extension that automatically takes the code from the `@examples` tag that follows and create an URL to the shinylive service. 
+During the documentation build, a new section is added to the function manual that contains aforementioned link as well as iframe to the application itself.
 
 ## Install
 
