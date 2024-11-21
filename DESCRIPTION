@@ -1,14 +1,14 @@
 Type: Package
 Package: roxy.shinylive
-Title: A Roxygen2 Extension for Shinylive
+Title: A 'roxygen2' Extension for 'Shinylive'
 Version: 1.0.0
 Authors@R: c(
     person("Pawel Rucki", , , "pawel.rucki@roche.com", role = c("aut", "cre")),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
   )
-Description: An extension for roxygen2 that allows to auto-create links to
-    shinylive from examples in the documentation.
-License: Apache License 2.0 | file LICENSE
+Description: An extension for 'roxygen2' to embed 'Shinylive' applications
+    in the package documentation.
+License: Apache License 2.0
 URL: https://github.com/insightsengineering/roxy.shinylive/
 BugReports: https://github.com/insightsengineering/roxy.shinylive/issues
 Depends:

@@ -2,11 +2,22 @@
 
 ## Overview
 
-This package provides a `roxygen2` extension that automatically takes the code from the `@examples` tag that follows and create an URL to the shinylive service. 
+This package provides a `roxygen2` extension that automatically takes the code from the `@examples` tag and create an URL to the [shinylive.io](https://shinylive.io/) service.
 During the documentation build, a new section is added to the function manual that contains aforementioned link as well as iframe to the application itself.
+
+### shinylive.io
+
+[shinylive.io](https://shinylive.io/) is a service that allows you to run [Shiny](https://shiny.posit.co/) applications entirely in the browser, without a dedicated server. It uses WebAssembly via [WebR](https://docs.r-wasm.org/webr/latest/).
+It has a sharing feature that allows you to encode the application code in the URL.
+This package does such encoding and returns the URL which can be used in variety of ways (from raw URL to iframe in function manual - see examples below).
 
 ## Install
 
+```r
+install.packages("roxy.shinylive")
+```
+
+Alternatively, you might want to use the development version.
 ```r
 # install.packages("pak")
 pak::pak("insightsengineering/roxy.shinylive")
@@ -50,12 +61,12 @@ Which would produce a following output in your documentation:
   \item{example-1}{
     \href{https://shinylive.io/r/app/#code=...}{Open in Shinylive}
     \if{html}{\out{<script type="text/javascript">(custom JS)</script>}}
-    \if{html}{\out{<iframe src="https://shinylive.io/r/app/#code=..."></iframe>}}
+    \if{html}{\out{<iframe class="iframe_shinylive" src="https://shinylive.io/r/app/#code=..."></iframe>}}
   }
   \item{example-2}{
     \href{https://shinylive.io/r/app/#code=...}{Open in Shinylive}
     \if{html}{\out{<script type="text/javascript">(custom JS)</script>}}
-    \if{html}{\out{<iframe src="https://shinylive.io/r/app/#code=..."></iframe>}}
+    \if{html}{\out{<iframe class="iframe_shinylive" src="https://shinylive.io/r/app/#code=..."></iframe>}}
   }
   ...
 }
