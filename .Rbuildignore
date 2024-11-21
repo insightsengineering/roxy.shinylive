@@ -11,8 +11,9 @@
 ^\.pre-commit-config\.yaml$
 ^\.lintr$
 ^\.covrignore$
-^.revdeprefs\.yaml$
+^\.revdeprefs\.yaml$
 ^revdep$
+^\.markdownlintignore$
 ^cran-comments\.md$
 
 # pkgdown
