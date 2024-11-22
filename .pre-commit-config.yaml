@@ -11,7 +11,6 @@ repos:
         additional_dependencies:
           - glue
           - jsonlite
-          - roxygen2
           - lzstring
           - roxygen2
           - stringr
