@@ -6,17 +6,18 @@ This package provides a `roxygen2` extension that automatically takes the code
 from the `@examples` tag and create an URL to the
 [shinylive.io](https://shinylive.io/) service.
 During the documentation build, a new section is added to the function manual
-that contains aforementioned link as well as iframe to the application itself.
+that contains the aforementioned link as well as an iframe to the application itself.
 
 ### shinylive.io
 
 [shinylive.io](https://shinylive.io/) is a service that allows you to run
 [Shiny](https://shiny.posit.co/) applications entirely in the browser, without
-a dedicated server. It uses WebAssembly via
-[WebR](https://docs.r-wasm.org/webr/latest/).
+a dedicated server.
+It uses WebAssembly via [WebR](https://docs.r-wasm.org/webr/latest/).
 
 It has a sharing feature that allows you to encode the application code in the
-URL. This package does such encoding and returns the URL which can be used in
+URL.
+This package does such encoding and returns the URL which can be used in
 variety of ways (from raw URL to iframe in function manual - see examples
 below).
 
