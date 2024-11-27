@@ -27,6 +27,3 @@ LICENSE
 ^LICENSE\.md$
 SECURITY
 ^SECURITY\.md$
-
-# GitLab CI
-^.gitlab-ci.yml$
