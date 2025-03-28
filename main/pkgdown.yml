@@ -1,0 +1,8 @@
+pandoc: 3.6.3
+pkgdown: 2.1.1
+pkgdown_sha: ~
+articles: {}
+last_built: 2025-03-28T09:28Z
+urls:
+  reference: https://insightsengineering.github.io/roxy.shinylive/reference
+  article: https://insightsengineering.github.io/roxy.shinylive/articles
