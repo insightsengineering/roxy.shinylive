@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+<link href="lib/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="lib/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="lib/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="lib/datatables-binding-0.33/datatables.js"></script>
+<script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="lib/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="lib/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="lib/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="lib/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="lib/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="lib/highlight.js-6.2/rstudio.css" rel="stylesheet" />
+<script src="lib/highlight.js-6.2/highlight.pack.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="lib/bootstrap-3.3.5/css/bootstrap-theme.min.css" rel="stylesheet" />
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+  <style type="text/css">table tr:hover td {
+  font-weight:bold;text-decoration:none
+}
+table tr.covered td{
+  background-color:rgba(95,151,68,0.3)
+}
+
+table tr:hover.covered .num{
+  background-color:rgba(95,151,68,0.7)
+}
+table tr.missed td{
+  background-color:rgba(185,73,71,0.3)
+}
+table tr:hover.missed .num{
+  background-color:rgba(185,73,71,0.7)
+}
+
+table tr.missed:hover td{
+  -webkit-box-shadow:0 -2px 0 0 #b94947 inset;
+  -moz-box-shadow:0 -2px 0 0 #b94947 inset;
+  box-shadow:0 -2px 0 0 #b94947 inset
+}
+table tr.covered:hover td{
+  -webkit-box-shadow:0 -2px 0 0 #5f9744 inset;
+  -moz-box-shadow:0 -2px 0 0 #5f9744 inset;
+  box-shadow:0 -2px 0 0 #5f9744 inset
+}
+
+table tr.never td{
+  background-color:transparent
+}
+
+table tbody {
+  border-style: solid;
+  border: 1px solid rgba(0,0,0,0.1)
+}
+
+table .num {
+  border-right: 1px solid rgba(0,0,0,0.1)
+}
+
+td.coverage em {
+  opacity: 0.5;
+}
+
+table td.coverage {
+  border-right: 1px solid rgba(0,0,0,0.1);
+  font-weight: bold;
+  text-align: center;
+}
+table.table-condensed pre {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 11px;
+}
+div#files td {
+  padding: 0;
+  padding-left: 5px;
+}
+
+div#files td.num {
+  padding-right: 5px;
+}
+
+table.table-condensed {
+  font-size: 11px;
+}</style>
+  <div class="col-md-8 col-md-offset-2">
+    <h2>roxy.shinylive coverage - 100.00%</h2>
+    <div class="tabbable">
+      <ul class="nav nav-tabs" data-tabsetid="covr">
+        <li class="active">
+          <a href="#tab-covr-1" data-toggle="tab" data-value="Files">Files</a>
+        </li>
+        <li>
+          <a href="#tab-covr-2" data-toggle="tab" data-value="Source">Source</a>
+        </li>
+      </ul>
+      <div class="tab-content" data-tabsetid="covr">
+        <div class="tab-pane active" title="Files" data-value="Files" id="tab-covr-1">
+          <div class="datatables html-widget html-fill-item" id="htmlwidget-579a0bfb8a0c468ba308" style="width:100%;height:500px;"></div>
+          <script type="application/json" data-for="htmlwidget-579a0bfb8a0c468ba308">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["<a href=\"#\">R/tag_examplesShinylive.R<\/a>","<a href=\"#\">R/parse_url.R<\/a>"],[225,37],[62,11],[62,11],[0,0],["8","14"],["100.00%","100.00%"]],"container":"<table class=\"row-border\">\n  <thead>\n    <tr>\n      <th>File<\/th>\n      <th>Lines<\/th>\n      <th>Relevant<\/th>\n      <th>Covered<\/th>\n      <th>Missed<\/th>\n      <th>Hits / Line<\/th>\n      <th>Coverage<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"dom":"t","paging":false,"columnDefs":[{"targets":6,"createdCell":"function(td, cellData, rowData, row, col) {\n  var percent = cellData.replace(\"%\", \"\");\n  if (percent > 90) {\n    var grad = \"linear-gradient(90deg, #edfde7 \" + cellData + \", white \" + cellData + \")\";\n  } else if (percent > 75) {\n    var grad = \"linear-gradient(90deg, #f9ffe5 \" + cellData + \", white \" + cellData + \")\";\n  } else {\n    var grad = \"linear-gradient(90deg, #fcece9 \" + cellData + \", white \" + cellData + \")\";\n  }\n  $(td).css(\"background\", grad);\n}\n"},{"className":"dt-right","targets":[1,2,3,4]},{"name":"File","targets":0},{"name":"Lines","targets":1},{"name":"Relevant","targets":2},{"name":"Covered","targets":3},{"name":"Missed","targets":4},{"name":"Hits / Line","targets":5},{"name":"Coverage","targets":6}],"order":[],"autoWidth":false,"orderClasses":false},"callback":"function(table) {\ntable.on('click.dt', 'a', function() {\n  files = $('div#files div');\n  files.not('div.hidden').addClass('hidden');\n  id = $(this).text();\n  files.filter('div[id=\\'' + id + '\\']').removeClass('hidden');\n  $('ul.nav a[data-value=Source]').text(id).tab('show');\n});\n}"},"evals":["options.columnDefs.0.createdCell","callback"],"jsHooks":[]}</script>
+        </div>
+        <div class="tab-pane" title="Source" data-value="Source" id="tab-covr-2">
+          <div id="files">
+            <div id="R/tag_examplesShinylive.R" class="hidden">
+              <table class="table-condensed">
+                <tbody>
+                  <tr class="never">
+                    <td class="num">1</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' Custom `@examplesShinylive` tag.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">2</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">3</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' This function generates a new "Examples in Shinylive" section in the documentation.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">4</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' This section contains URL to the application in Shinylive and for HTML outputs: an iframe with the application.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">5</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' If no code is provided then the code is taken from the following `@examples` or `@examplesIf` tag.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">6</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">7</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' The application code must be executable inside Shinylive. If the application code includes functions from your</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">8</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' package, you must add `library(&lt;package&gt;)` beforehand. For more information, refer to the Decoration section</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">9</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' on how to use and decorate existing examples.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">10</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">11</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' Note: All the packages used in the application code need to be installable in WebR.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">12</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' See [this article](https://docs.r-wasm.org/webr/latest/packages.html) for more details.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">13</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">14</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @section Decoration:</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">15</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">16</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' To avoid repetition between the `@examplesShinylive` and `@examples` sections contents,</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">17</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' there are special string literals to be used inside `@examplesShinylive` tag content</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">18</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' that allow you to access the content(s) of the `@examples` or `@examplesIf` tags.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">19</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' These literals should be used as expressions embraced with `{{ }}`, which are then interpolated using</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">20</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' `glue::glue_data(..., .open = "{{", .close = "}}")`.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">21</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">22</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' The following keywords are available:</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">23</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' * `"{{ next_example }}"` - (the default if empty) "raw" element of the next example</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">24</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' * `"{{ prev_example }}"` - "raw" element of the previous example</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">25</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' * `"{{ tags_examples }}"` - a list of `@examples` or `@examplesIf` tags</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">26</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' * `"{{ examples }}"` - a list of "raw" elements from `tags_examples` list elements</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">27</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">28</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' This allows you to access and decorate existing example code to create executable application code for Shinylive.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">29</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' Refer to the examples section for possible use cases.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">30</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">31</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @name tag-examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">32</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">33</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @usage</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">34</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examplesShinylive${1:# example code (optional)}</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">35</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">36</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">37</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' # As a part of documentation:</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">38</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">39</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' # basic example:</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">40</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (docs)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">41</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">42</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">43</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (example code)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">44</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">45</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' # using keywords - `{{ next_example }}`:</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">46</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (docs)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">47</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">48</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' foo &lt;- 1</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">49</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' {{ next_example }}</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">50</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' bar &lt;- 2</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">51</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">52</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (example code)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">53</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">54</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' # using keywords - `{{ prev_example }}`:</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">55</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (docs)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">56</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' bar &lt;- 2</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">57</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">58</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (example code)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">59</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">60</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' foo &lt;- 1</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">61</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' {{ prev_example }}</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">62</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">63</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' # A typical example would be:</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">64</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (docs)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">65</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">66</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' library(&lt;package&gt;)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">67</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' interactive &lt;- function() TRUE</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">68</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' {{ next_example }}</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">69</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">70</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' app &lt;- ...</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">71</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' if (interactive()) {</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">72</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #'   shinyApp(app$ui, app$server)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">73</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' }</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">74</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">75</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' # multiple apps:</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">76</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (docs)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">77</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">78</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">79</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (example app 1)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">80</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">81</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">82</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (example app 2)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">83</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">84</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' # skip parts of example code:</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">85</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (docs)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">86</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">87</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (example code - skipped)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">88</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">89</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">90</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (example code - included)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">91</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">92</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' # multiple apps with keywords:</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">93</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (docs)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">94</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">95</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' x &lt;- 1</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">96</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' {{ next_example }}</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">97</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">98</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (example app 1)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">99</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">100</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' y &lt;- 1</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">101</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' {{ next_example }}</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">102</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">103</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (example app 2)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">104</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">105</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' # combining multiple examples:</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">106</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (docs)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">107</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">108</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (app pre-requisites)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">109</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">110</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (example app)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">111</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">112</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' {{ paste0(examples, collapse = ", ") }}</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">113</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">114</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' # identical to the above example but with a different approach:</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">115</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (docs)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">116</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">117</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (app pre-requisites)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">118</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">119</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' (example app)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">120</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' @examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">121</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' #' {{ paste0(lapply(tags_examples, `[[`, "raw"), collapse = ", ") }}</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">122</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">NULL</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">123</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">124</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @noRd</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">125</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @exportS3Method roxygen2::roxy_tag_parse roxy_tag_examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">126</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @importFrom glue glue_data</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">127</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @importFrom stringr str_trim</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">128</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @importFrom roxygen2 warn_roxy_tag</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">129</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">roxy_tag_parse.roxy_tag_examplesShinylive &lt;- function(x) {</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">130</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  if (stringr::str_trim(x$raw) == "") {</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">131</td>
+                    <td class="coverage">8<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    x$raw &lt;- "{{ next_example }}"</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">132</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  }</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">133</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">134</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  # not elegant but this is the most efficient way to access sibling tags</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">135</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  tokens &lt;- dynGet("tokens")</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">136</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">137</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  tags_examples &lt;- Filter(function(x) x$tag %in% c("examples", "examplesIf"), tokens)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">138</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">139</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  examples &lt;- lapply(tags_examples, `[[`, "raw")</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">140</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">141</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  next_example &lt;- Reduce(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">142</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    function(x, y) `if`(x$line &lt; y$line, x, y),</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">143</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    Filter(function(y) y$line &gt; x$line, tags_examples)</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">144</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  )$raw</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">145</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">146</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  prev_example &lt;- Reduce(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">147</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    function(x, y) `if`(x$line &gt; y$line, x, y),</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">148</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    Filter(function(y) y$line &lt; x$line, tags_examples)</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">149</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  )$raw</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">150</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">151</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  x$raw &lt;- try(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">152</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    as.character(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">153</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      glue::glue_data(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">154</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">        .x = list(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">155</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">          tags_examples = tags_examples,</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">156</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">          examples = examples,</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">157</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">          next_example = next_example,</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">158</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">          prev_example = prev_example</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">159</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">        ),</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">160</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">        x$raw,</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">161</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">        .open = "{{",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">162</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">        .close = "}}"</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">163</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      )</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">164</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    ),</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">165</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    silent = TRUE</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">166</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  )</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">167</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">168</td>
+                    <td class="coverage">15<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  if (inherits(x$raw, "try-error")) {</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">169</td>
+                    <td class="coverage">1<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    roxygen2::warn_roxy_tag(x, "failed to interpolate the content")</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">170</td>
+                    <td class="coverage">1<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    return(NULL)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">171</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  }</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">172</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">173</td>
+                    <td class="coverage">14<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  if (is.null(x$raw) || length(x$raw) == 0) {</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">174</td>
+                    <td class="coverage">1<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    roxygen2::warn_roxy_tag(x, "requires a value")</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">175</td>
+                    <td class="coverage">1<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    return(NULL)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">176</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  }</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">177</td>
+                    <td class="coverage">13<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  x$val &lt;- create_shinylive_url(x$raw) # nolint: object_usage_linter.</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">178</td>
+                    <td class="coverage">13<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  x</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">179</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">}</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">180</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">181</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @noRd</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">182</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @exportS3Method roxygen2::roxy_tag_rd roxy_tag_examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">183</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @importFrom roxygen2 rd_section</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">184</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">roxy_tag_rd.roxy_tag_examplesShinylive &lt;- function(x, base_path, env) {</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">185</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  roxygen2::rd_section("examplesShinylive", x$val)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">186</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">}</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">187</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">188</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @noRd</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">189</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @exportS3Method format rd_section_examplesShinylive</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">190</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">format.rd_section_examplesShinylive &lt;- function(x, ...) {</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">191</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  app_height &lt;- "800px"</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">192</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  app_max_width &lt;- "1400px"</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">193</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  iframe_style &lt;- paste0(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">194</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    "style=\"",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">195</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    paste(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">196</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      paste0("height: ", app_height),</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">197</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "width: 100vw",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">198</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      paste0("max-width: ", app_max_width),</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">199</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "border: 1px solid rgba(0,0,0,0.175)",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">200</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "border-radius: .375rem",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">201</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "position: absolute",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">202</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "left: 50\\%",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">203</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "margin-top: 30px",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">204</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "transform: translateX(-50\\%)",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">205</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "z-index: 1",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">206</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      sep = "; "</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">207</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    ),</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">208</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    "\""</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">209</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  )</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">210</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  paste0(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">211</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    "\\section{Examples in Shinylive}{\n",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">212</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    "\\describe{\n",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">213</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    paste0(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">214</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "  \\item{example-", seq_along(x$value), "}{\n",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">215</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "    \\href{", x$value, "}{Open in Shinylive}\n",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">216</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "    \\if{html}{\\out{&lt;iframe class=\"iframe_shinylive\" src=\"", x$value, "\" ", iframe_style, "&gt;&lt;/iframe&gt;}}\n", # nolint: line_length_linter.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">217</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      # empty a tag because Tidy complains about empty spans.</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">218</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "    \\if{html}{\\out{&lt;a style='height: ", app_height, "; display: block;'&gt;&lt;/a&gt;}}\n",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">219</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      "  }\n",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">220</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      collapse = ""</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">221</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    ),</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">222</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    "}\n",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">223</td>
+                    <td class="coverage">2<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    "}\n"</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">224</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  )</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">225</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">}</pre>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="R/parse_url.R" class="hidden">
+              <table class="table-condensed">
+                <tbody>
+                  <tr class="never">
+                    <td class="num">1</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' Creates Shinylive url based on app code.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">2</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">3</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @importFrom jsonlite unbox toJSON</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">4</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @importFrom lzstring compressToEncodedURIComponent</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">5</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">6</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @param code (`character(1)`) A string with app code.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">7</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @param mode (`character(1)`) A string with mode. One of "app" or "editor". Default is "app".</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">8</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @param header (`logical(1)`) A logical value indicating whether to include header.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">9</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' Ignored if `mode` is "editor".</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">10</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @return (`character(1)`) Shinylive app url.</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">11</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">12</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @export</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">13</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#'</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">14</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' @examples</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">15</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' code &lt;- "this is your app code as a string"</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">16</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' create_shinylive_url(code)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">17</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' create_shinylive_url(code, header = FALSE)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">18</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">#' create_shinylive_url(code, mode = "editor")</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">19</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">create_shinylive_url &lt;- function(code, mode = c("app", "editor"), header = TRUE) {</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">20</td>
+                    <td class="coverage">14<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  stopifnot(is.character(code) &amp;&amp; length(code) == 1)</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">21</td>
+                    <td class="coverage">14<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  mode &lt;- match.arg(mode)</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">22</td>
+                    <td class="coverage">14<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  stopifnot(is.logical(header) &amp;&amp; length(header) == 1)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">23</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">24</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  # implementation based on "Create ShinyLive Link" feature of Shiny VSCode extension</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">25</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  # https://github.com/posit-dev/shiny-vscode/blob/80560bf36d516ff89dffe88bd9a28cee9edd4d43/src/shinylive.ts#L499</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">26</td>
+                    <td class="coverage">14<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  files &lt;- list(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">27</td>
+                    <td class="coverage">14<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    name = jsonlite::unbox("app.R"),</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">28</td>
+                    <td class="coverage">14<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    content = jsonlite::unbox(code)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">29</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  )</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">30</td>
+                    <td class="coverage">14<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  files_json &lt;- jsonlite::toJSON(list(files))</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">31</td>
+                    <td class="coverage">14<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  files_lz &lt;- lzstring::compressToEncodedURIComponent(as.character(files_json))</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">32</td>
+                    <td class="coverage">14<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  files_lz &lt;- gsub("/", "-", files_lz)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">33</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">34</td>
+                    <td class="coverage">14<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  header_param &lt;- ifelse(mode == "app" &amp;&amp; isFALSE(header), "h=0&amp;", "")</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">35</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">36</td>
+                    <td class="coverage">14<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  sprintf("https://shinylive.io/r/%s/#%scode=%s", mode, header_param, files_lz)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">37</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">}</pre>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <script>$('div#files pre').each(function(i, block) {
+    hljs.highlightBlock(block);
+});</script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
