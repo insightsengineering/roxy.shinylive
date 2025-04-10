@@ -1,61 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="parse_url" timestamp="2025-04-10T13:04:19Z" hostname="4da81c7ab1c3" tests="1" skipped="0" failures="0" errors="0" time="0.017">
-    <testcase time="0.017" classname="parse_url" name="create_shinylive_url_works_as_expected"/>
+  <testsuite name="parse_url" timestamp="2025-04-10T13:04:28Z" hostname="d9a27bb09e5b" tests="1" skipped="0" failures="0" errors="0" time="0.018">
+    <testcase time="0.018" classname="parse_url" name="create_shinylive_url_works_as_expected"/>
   </testsuite>
-  <testsuite name="tag_examplesShinylive" timestamp="2025-04-10T13:04:19Z" hostname="4da81c7ab1c3" tests="53" skipped="0" failures="0" errors="0" time="0.558">
-    <testcase time="0.15" classname="tag_examplesShinylive" name="examplesShinylive_tag_errors_missing_examples"/>
-    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_errors_missing_examples"/>
-    <testcase time="0.016" classname="tag_examplesShinylive" name="examplesShinylive_tag_single_occurrence"/>
-    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_single_occurrence"/>
-    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_single_occurrence"/>
-    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_single_occurrence"/>
+  <testsuite name="tag_examplesShinylive" timestamp="2025-04-10T13:04:28Z" hostname="d9a27bb09e5b" tests="51" skipped="2" failures="0" errors="0" time="0.616">
+    <testcase time="0.145" classname="tag_examplesShinylive" name="examplesShinylive_tag_errors_missing_examples">
+      <skipped message="Reason: On CRAN ('test-tag_examplesShinylive.R:13:3')"/>
+    </testcase>
+    <testcase time="0.0269999999999999" classname="tag_examplesShinylive" name="examplesShinylive_tag_single_occurrence"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_single_occurrence"/>
-    <testcase time="0.012" classname="tag_examplesShinylive" name="examplesShinylive_tag_multiple_occurrences"/>
+    <testcase time="0.001" classname="tag_examplesShinylive" name="examplesShinylive_tag_single_occurrence"/>
+    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_single_occurrence"/>
+    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_single_occurrence"/>
+    <testcase time="0.011" classname="tag_examplesShinylive" name="examplesShinylive_tag_multiple_occurrences"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_multiple_occurrences"/>
     <testcase time="0.001" classname="tag_examplesShinylive" name="examplesShinylive_tag_multiple_occurrences"/>
-    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_multiple_occurrences"/>
+    <testcase time="0.00600000000000001" classname="tag_examplesShinylive" name="examplesShinylive_tag_multiple_occurrences"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_multiple_occurrences"/>
     <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_multiple_occurrences"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_multiple_occurrences"/>
-    <testcase time="0.01" classname="tag_examplesShinylive" name="examplesShinylive_tag_on_default_use_only_next_example_code"/>
-    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_on_default_use_only_next_example_code"/>
-    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_on_default_use_only_next_example_code"/>
-    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_on_default_use_only_next_example_code"/>
+    <testcase time="0.011" classname="tag_examplesShinylive" name="examplesShinylive_tag_on_default_use_only_next_example_code"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_on_default_use_only_next_example_code"/>
-    <testcase time="0.0089999999999999" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_next_example_"/>
-    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_next_example_"/>
+    <testcase time="0.001" classname="tag_examplesShinylive" name="examplesShinylive_tag_on_default_use_only_next_example_code"/>
+    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_on_default_use_only_next_example_code"/>
+    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_on_default_use_only_next_example_code"/>
+    <testcase time="0.011" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_next_example_"/>
+    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_next_example_"/>
     <testcase time="0.001" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_next_example_"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_next_example_"/>
-    <testcase time="0.005" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_next_example_"/>
-    <testcase time="0.00900000000000001" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_prev_example_"/>
+    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_next_example_"/>
+    <testcase time="0.014" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_prev_example_"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_prev_example_"/>
-    <testcase time="0.001" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_prev_example_"/>
+    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_prev_example_"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_prev_example_"/>
-    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_prev_example_"/>
-    <testcase time="0.00900000000000001" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_examples_"/>
+    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_prev_example_"/>
+    <testcase time="0.012" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_examples_"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_examples_"/>
     <testcase time="0.001" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_examples_"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_examples_"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_examples_"/>
-    <testcase time="0.01" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_tags_examples_"/>
-    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_tags_examples_"/>
-    <testcase time="0.004" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_tags_examples_"/>
-    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_tags_examples_"/>
+    <testcase time="0.0109999999999999" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_tags_examples_"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_tags_examples_"/>
-    <testcase time="0.106" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_error_when_parsing_with_glue"/>
-    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_error_when_parsing_with_glue"/>
-    <testcase time="0.011" classname="tag_examplesShinylive" name="examplesShinylive_tag_decorate_using_next_example_keyword"/>
+    <testcase time="0.001" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_tags_examples_"/>
+    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_tags_examples_"/>
+    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_tags_examples_"/>
+    <testcase time="0.0940000000000001" classname="tag_examplesShinylive" name="examplesShinylive_tag_keywords_error_when_parsing_with_glue">
+      <skipped message="Reason: On CRAN ('test-tag_examplesShinylive.R:256:3')"/>
+    </testcase>
+    <testcase time="0.0429999999999999" classname="tag_examplesShinylive" name="examplesShinylive_tag_decorate_using_next_example_keyword"/>
     <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_decorate_using_next_example_keyword"/>
-    <testcase time="0.001" classname="tag_examplesShinylive" name="examplesShinylive_tag_decorate_using_next_example_keyword"/>
-    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_decorate_using_next_example_keyword"/>
-    <testcase time="0.003" classname="tag_examplesShinylive" name="examplesShinylive_tag_decorate_using_next_example_keyword"/>
-    <testcase time="0.073" classname="tag_examplesShinylive" name="format_returns_Rd_parsable_to_HTML"/>
-    <testcase time="0.002" classname="tag_examplesShinylive" name="format_returns_Rd_parsable_to_HTML"/>
-    <testcase time="0.024" classname="tag_examplesShinylive" name="format_returns_Rd_parsable_to_tidy_HTML"/>
+    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_decorate_using_next_example_keyword"/>
+    <testcase time="0.004" classname="tag_examplesShinylive" name="examplesShinylive_tag_decorate_using_next_example_keyword"/>
+    <testcase time="0.00300000000000011" classname="tag_examplesShinylive" name="examplesShinylive_tag_decorate_using_next_example_keyword"/>
+    <testcase time="0.0899999999999999" classname="tag_examplesShinylive" name="format_returns_Rd_parsable_to_HTML"/>
+    <testcase time="0.00100000000000011" classname="tag_examplesShinylive" name="format_returns_Rd_parsable_to_HTML"/>
+    <testcase time="0.0269999999999999" classname="tag_examplesShinylive" name="format_returns_Rd_parsable_to_tidy_HTML"/>
     <testcase time="0.0130000000000001" classname="tag_examplesShinylive" name="examplesShinylive_tag_respect_order_of_tags_before_examples"/>
-    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_respect_order_of_tags_before_examples"/>
-    <testcase time="0.00999999999999979" classname="tag_examplesShinylive" name="examplesShinylive_tag_respect_order_of_tags_after_examples"/>
-    <testcase time="0.00100000000000011" classname="tag_examplesShinylive" name="examplesShinylive_tag_respect_order_of_tags_after_examples"/>
+    <testcase time="0.00099999999999989" classname="tag_examplesShinylive" name="examplesShinylive_tag_respect_order_of_tags_before_examples"/>
+    <testcase time="0.014" classname="tag_examplesShinylive" name="examplesShinylive_tag_respect_order_of_tags_after_examples"/>
+    <testcase time="0.002" classname="tag_examplesShinylive" name="examplesShinylive_tag_respect_order_of_tags_after_examples"/>
   </testsuite>
 </testsuites>
