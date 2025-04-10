@@ -1,0 +1,370 @@
+---
+title: Interactive Shiny Applications in R Documentation with `roxy.shinylive`
+subtitle: "@ShinyConf2025"
+author: Pawel Rucki
+format: revealjs
+date: 2025/04/10
+date-format: long
+include-in-header:
+  # change font size in title
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 1.5em;
+      }
+      </style>
+---
+
+## About me 👤
+
+Pawel Rucki
+
+Chief Engineer of NEST project @Roche
+
+-   `teal`, `teal.code`, `teal.data` ...
+-   `chevron`, `tern`, `rtables`, ...
+-   `tlg-catalog`, `teal.gallery`
+-   `r.pkg.template`
+-   other internal tools ...
+
+[{{< fa brands github >}}](https://github.com/pawelru) [{{< fa brands linkedin >}}](https://www.linkedin.com/in/pawel-rucki/) [{{< fa brands slack >}}]()
+
+## Agenda 📋
+
+1. Problem statement
+2. The tool
+    - how to use?
+    - examples
+    - how does it work?
+    - limitations
+3. Summary
+4. QA
+
+## Motivation 💡
+
+There are a few ways to organize Shiny app code:
+
+- Shiny App as a single file
+
+- Shiny App as a project
+
+- Shiny App as a package
+
+## Motivation 💡 {auto-animate="true"}
+
+There are a few ways to organize Shiny app code:
+
+- Shiny App as a single file
+
+- Shiny App as a project
+
+    *BUT: `rhino`*
+
+- Shiny App as a package
+
+##
+
+> If you are creating a large or long-term Shiny app, I highly recommend that you organise your app in the same way as an R package.
+>
+> — Hadley Wickham, *Mastering Shiny*
+
+##
+
+> The core idea of a package is that it’s a set of conventions for organising your code and related artefacts: if you follow those conventions, you get a bunch of tools for free.
+>
+> — Hadley Wickham, *Mastering Shiny*
+
+## Stats
+
+There are [~1.5k](https://github.com/search?q=shinyApp+path%3AR%2F*.R+org%3Acran&type=code&ref=advsearch) CRAN packages with `shinyApp()`.
+
+![](./images/gh_stats.png){fig-align="center"}
+
+
+## Benefits 🚀:
+
+::: incremental
+- Resolves file interdependencies
+
+- Introduces structure in the project files
+
+- Seamless integration with IDEs like RStudio
+
+- Leverages package development tools:
+
+    - `DESCRIPTION` - metadata like version, authors, dependencies, etc.
+    - `NAMESPACE` - manage public and private functions
+    - Tools like R CMD BUILD, R CMD CHECK, `devtools::test()`
+    - [Enhanced documentation]{.fragment .highlight-red}
+
+:::
+
+## App as a script 📜 - `app.r` {auto-animate="true"}
+
+```{.r}
+library(shiny)
+source(...)
+
+ui <- fluidPage(
+  ...
+)
+server <- function(input, output, session) {
+  ...
+}
+shinyApp(ui, server, ...)
+```
+
+## App as a package 📦 - `R/myapp.r` {auto-animate="true"}
+
+```{.r}
+myApp <- function(...) {
+  ui <- fluidPage(
+    ...
+  )
+  server <- function(input, output, session) {
+    ...
+  }
+  shinyApp(ui, server, ...)
+}
+```
+
+## App as a package 📦 - `R/myapp.r` {auto-animate="true"}
+
+```{.r}
+#' Create app object
+#' This is the main function of the package. It creates an app object which needs to be run separately
+#' @param
+#' ... (some parameters)
+#' @return
+#' Shiny app object
+#' @export
+#' @examples
+#' if (interactive()) {
+#'   runApp()
+#' }
+myApp <- function(...) {
+  ui <- fluidPage(
+    ...
+  )
+  server <- function(input, output, session) {
+    ...
+  }
+  shinyApp(ui, server, ...)
+}
+```
+
+## Documentation page 📄
+
+:::{.r-stack}
+
+![](./images/docs-examples-basic.png){.fragment fig-align="center" width=700px}
+
+![](https://media.tenor.com/EeEk3_NNFgsAAAAi/confused.gif){.fragment .absolute bottom=0 right=0}
+
+:::
+
+## Examples: 🌟
+
+-   [`bsplus`](https://ijlyttle.github.io/bsplus/reference/bs_button.html){preview-link="true"}
+
+-   [`shinyWidgets`](https://dreamrs.github.io/shinyWidgets/reference/actionBttn.html){preview-link="true"}
+
+-   [`sortable`](https://rstudio.github.io/sortable/reference/rank_list.html){preview-link="true"}
+
+-   ...
+
+## Examples (cont.): 🌟
+
+[`shiny`](https://shiny.posit.co/r/reference/shiny/latest/actionbutton.html){preview-link="true"}
+
+## Examples (cont.): 🌟 {auto-animate="true"}
+
+[`shiny`](https://shiny.posit.co/r/reference/shiny/latest/actionbutton.html){preview-link="true"}
+
+--
+
+But:
+
+-   [Shiny Components](https://shiny.posit.co/r/components/){preview-link="true"}
+-   [Shiny Widget Gallery](https://shiny.posit.co/r/gallery/widgets/widget-gallery/){preview-link="true"}
+
+## `roxy.shinylive`
+
+`roxygen2` extension that takes the code from examples and creates an URL to shinylive.io.
+
+Available on CRAN.
+
+Small footprint: small size (~100 lines of code) with minimal dependencies.
+
+## Example - `teal.modules.general`
+
+[Before - v0.3.0](https://insightsengineering.github.io/teal.modules.general/v0.3.0/reference/tm_front_page.html){preview-link="true"}
+
+[After - v0.4.0](https://insightsengineering.github.io/teal.modules.general/v0.4.0/reference/tm_front_page.html){preview-link="true"}
+
+## How to use? 🛠️
+
+::: {.callout-tip}
+
+`roxy.shinylive` extends `roxygen2` with a new `@examplesShinylive` tag.
+
+:::
+
+- Add the following to the `DESCRIPTION` file:
+
+```
+Roxygen: list(..., packages = c(..., "roxy.shinylive"))
+```
+
+- Use it in the `roxygen2` documentation
+
+## How to use? 🛠️ {auto-animate="true"}
+
+```{.r}
+#' (docs)
+#' @examples
+#' (example code with a Shiny app)
+... R code ...
+```
+
+## How to use? 🛠️ {auto-animate="true"}
+
+```{.r code-line-numbers="2"}
+#' (docs)
+#' @examplesShinylive
+#' @examples
+#' (example code with a Shiny app)
+... R code ...
+```
+
+## How does it work? ⚙️
+
+During documentation, the example code is extracted, hashed, and converted into a URL.
+
+This URL is embedded as an `<iframe>` in the `Rd` file:
+
+``` rd
+...
+\section{Examples in Shinylive}{
+\describe{
+  \item{example}{
+    \href{https://shinylive.io/r/app/#code=...}{Open in Shinylive}
+    \if{html}{\out{<script type="text/javascript">(custom JS)</script>}}
+    \if{html}{\out{<iframe class="iframe_shinylive" src="https://shinylive.io/r/app/#code=..."></iframe>}}
+  }
+}
+}
+...
+```
+
+... which is then rendered into `.html` file accordingly.
+
+## A note about formats ⚠️
+
+```
+    \if{html}{\out{<iframe class="iframe_shinylive" src="https://shinylive.io/r/app/#code=..."></iframe>}}
+```
+
+Please note that the `<iframe>` element is included in the `.html` outputs only. For `.pdf` (and other formats), the output includes just the `<href>` element.
+
+## A note about performance ⚠️
+
+This is as fast as Shinylive. WebR executes the code on client side. All the packages will be downloaded and installed and used on the application open request.
+
+## A note about packages ⚠️
+
+The shinylive app code needs to be **self-contained** with all the required `library()` calls (which are redundant for `roxygen2` example code).
+
+All the packages (including the documented one) must be available in the default WASM repositry(\*).
+
+(\*) This is a known issue awaiting fixes in `webr`. A workaround is available. See the [GH issue](https://github.com/posit-dev/shinylive/issues/189#issuecomment-2468672655).
+
+## Decorating example code 🎨 {auto-animate="true"}
+
+```{.r}
+#' (docs)
+#' @examples
+#' if (interactive()) {
+#'   myApp()
+#' }
+```
+
+## Decorating example code 🎨 {auto-animate="true"}
+
+```{.r code-line-numbers="2"}
+#' (docs)
+#' @examplesShinylive
+#' @examples
+#' if (interactive()) {
+#'   myApp()
+#' }
+```
+
+## Decorating example code 🎨 {auto-animate="true"}
+
+```{.r code-line-numbers="2-5"}
+#' (docs)
+#' @examplesShinylive
+#' library(myPackage)
+#' interactive <- function() TRUE
+#' {{ next_example }}
+#' @examples
+#' if (interactive()) {
+#'   myApp()
+#' }
+```
+
+## Example of `teal.modules.general`: 📝
+
+`v0.3.1`:
+
+- [code](https://github.com/insightsengineering/teal.modules.general/blob/c57c2b83ca69933c3f18049c6dfb00cb1c673076/R/tm_front_page.R#L20){preview-link="true"}
+
+- [docs](https://insightsengineering.github.io/teal.modules.general/v0.3.0/reference/tm_front_page.html){preview-link="true"}
+
+`v0.4.0`:
+
+- [code](https://github.com/insightsengineering/teal.modules.general/blob/469d2d6bad3a6f13b562053cbc4dbd8f4acdd227/R/tm_front_page.R#L23-L26){preview-link="true"}
+
+- [docs](https://insightsengineering.github.io/teal.modules.general/v0.4.0/reference/tm_front_page.html){preview-link="true"}
+
+## Decoration 🎨
+
+You can decorate the code as much as you like!
+
+If you have multiple apps in your examples, it's recommended to split them (multiple `@examples` are supported natively) and create shinylive app separately.
+
+## Decoration cont. 🎨
+
+Following keywords are supported:
+
+- `{{{ next_example }}}`
+- `{{{ prev_example }}}`
+- `{{{ tags_examples }}}`
+- `{{{ examples }}}`
+
+See the [documentation](https://insightsengineering.github.io/roxy.shinylive/main/reference/tag-examplesShinylive.html#decoration) and [examples](https://insightsengineering.github.io/roxy.shinylive/main/reference/tag-examplesShinylive.html#decoration).
+
+## Summary 📝
+
+`roxy.shinylive` is a package that extends `roxygen2` with a new tag `@examplesShinylive`.
+
+Within this tag we can access examples code and decorate it to make it fully functional in Shinylive.
+
+This tag renders into the `<iframe>` tag to Shinylive application so that we can have embedded interactive application inside the documentation.
+
+## Other use cases: 🌐
+
+- `shinylive` app in README
+
+- `shinylive` app in vignettes
+
+## Closing remarks 🙏
+
+Big thank you:
+
+- WebR and Shinylive authors
+
+- `lzstring` for hashing implementation
+
+# Thank you! 🎉
