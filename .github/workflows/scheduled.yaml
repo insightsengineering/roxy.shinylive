@@ -34,12 +34,12 @@ jobs:
     secrets:
       REPO_GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
       GCHAT_WEBHOOK: ${{ secrets.GCHAT_WEBHOOK }}
-      with:
-        strategy: ${{ matrix.test-strategy }}
-        additional-env-vars: |
-          PKG_SYSREQS_DRY_RUN=true
-        extra-deps: |
-          xml2 >= 1.3.4
+    with:
+      strategy: ${{ matrix.test-strategy }}
+      additional-env-vars: |
+        PKG_SYSREQS_DRY_RUN=true
+      extra-deps: |
+        xml2 >= 1.3.4
   branch-cleanup:
     if: >
       github.event_name == 'schedule' || (
