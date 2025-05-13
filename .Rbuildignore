@@ -27,3 +27,4 @@ LICENSE
 ^LICENSE\.md$
 SECURITY
 ^SECURITY\.md$
+^inst/presentations$
