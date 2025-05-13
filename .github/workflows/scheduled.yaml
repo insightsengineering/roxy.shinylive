@@ -39,7 +39,7 @@ jobs:
       additional-env-vars: |
         PKG_SYSREQS_DRY_RUN=true
       extra-deps: |
-        xml2 (>= 1.3.6); yaml (>= 2.3.8); rlang (>= 1.1.3); digest (>= 0.6.37); curl (>= 5.2.0); processx (>= 3.8.0); sass (>= 0.4.3)
+        xml2 (>= 1.3.6); yaml (>= 2.3.8); rlang (>= 1.1.3); digest (>= 0.6.37); curl (>= 5.2.0); processx (>= 3.8.0); sass (>= 0.4.4)
   branch-cleanup:
     if: >
       github.event_name == 'schedule' || (
